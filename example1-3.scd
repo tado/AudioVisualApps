@@ -12,8 +12,9 @@ SynthDef(\simple_sine, {
 SynthDef(\fx, {
 	var in, out;
 	in = In.ar(0, 2);
-	2.do({ in = AllpassL.ar(in, 0.1, LFNoise2.kr([rrand(0.01, 0.1),rrand(0.01, 0.1)],0.05,0.15), 2) });
-	out = (in*0.8).softclip;
+	5.do({ in = AllpassL.ar(in, 0.1, LFNoise2.kr([rrand(0.01, 0.1),rrand(0.01, 0.1)],0.05,0.15), 4) });
+	//out = (in*0.8).softclip;
+	out = (in*0.1).softclip;
 	Out.ar(0, out);
 }).store;
 

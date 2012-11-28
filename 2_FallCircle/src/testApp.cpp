@@ -7,11 +7,11 @@ void testApp::setup() {
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofBackgroundHex(0x000000);
-	ofSetCircleResolution(32);
+	ofSetCircleResolution(64);
 	ofSetLogLevel(OF_LOG_NOTICE);
 	
 	box2d.init();
-	box2d.setGravity(0, 10.0);
+	box2d.setGravity(0, 8.0);
 	box2d.setFPS(30.0);
 	box2d.createBounds();
 	box2d.registerGrabbing();
@@ -71,11 +71,23 @@ void testApp::update() {
 //--------------------------------------------------------------
 void testApp::draw() {
 	//circlesに格納された全ての図形を描画
+	ofEnableSmoothing();
     for(int i=0; i<circles.size(); i++) {
 		ofSetHexColor(0x3399ff);
+		ofNoFill();
+		ofCircle(circles[i]->getPosition().x, circles[i]->getPosition().y, circles[i]->getRadius());
 		ofFill();
-		circles[i]->draw();
+		ofCircle(circles[i]->getPosition().x, circles[i]->getPosition().y, circles[i]->getRadius());
+		if (circles[i]->getPosition().y > ofGetHeight()) {
+			circles[i]->destroy();
+		}
     }
+	ofDisableSmoothing();
+	
+	/*
+	if(drawing.size()==0) polyLine.draw();
+	else drawing.draw();
+	 */
 	
 	//円を描く際のガイド表示
     if (mouseDowned) {
@@ -95,7 +107,16 @@ void testApp::draw() {
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key) {
-	if(key == 'f') ofToggleFullscreen();
+	if(key == 'f'){
+		ofToggleFullscreen();
+	}
+	if (key == 'c') {
+		ofxBox2dCircle *c =new ofxBox2dCircle();
+		c->setPhysics(1.5, 0.8, 1.0); //物理パラメータを設定
+		c->setup(box2d.getWorld(), mouseX, mouseY, ofRandom(0.5,20));
+		circles.push_back(c); //生成した円をcirclesベクターに追加
+		mouseDowned = false;
+	}
 	if (key == 'd') {
 		if (circles.size() > 0) {
 			circles[0]->destroy();
@@ -115,13 +136,23 @@ void testApp::mouseMoved(int x, int y ) {
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button) {
-
+	//drawing.addVertex(x, y);
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button) {
+
     mouseDownLoc.set(x, y);
     mouseDowned = true;
+
+	/*
+	if(polyLine.isBody()) {
+		drawing.clear();
+		polyLine.destroy();
+	}
+	
+	drawing.addVertex(x, y);
+	 */
 }
 
 //--------------------------------------------------------------
@@ -135,10 +166,22 @@ void testApp::mouseReleased(int x, int y, int button) {
     }
 
     ofxBox2dCircle *c =new ofxBox2dCircle();
-    c->setPhysics(1.0, 0.7, 0.5); //物理パラメータを設定
+    c->setPhysics(1.0, 0.9, 1.0); //物理パラメータを設定
     c->setup(box2d.getWorld(), mouseDownLoc.x, mouseDownLoc.y, r); //マウスの位置に円を設定
     circles.push_back(c); //生成した円をcirclesベクターに追加
     mouseDowned = false;
+
+	/*
+	drawing.setClosed(false);
+	drawing.simplify();
+	
+	polyLine.addVertexes(drawing);
+	polyLine.simplify();
+	polyLine.setPhysics(0.0, 0.5, 0.5);
+	polyLine.create(box2d.getWorld());
+	
+	drawing.clear();
+	 */
 }
 
 //--------------------------------------------------------------

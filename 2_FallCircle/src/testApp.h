@@ -32,6 +32,8 @@ public:
 	deque <ofxBox2dCircle *> circles;
 	ofxSCSynth *reverb;
 	ofxSCSynth *perc;
+	//ofPolyline drawing;
+	//ofxBox2dPolygon polyLine;
 	
 	ofVec2f mouseDownLoc;
     bool mouseDowned;
