@@ -5,9 +5,9 @@ SawSynth::SawSynth(int n){
     death = false;
     detune = ofRandom(-0.1, 0.1);
     nth = n;
-    alpha = 0;
-	alphaMax = 255;
-    startTime = ofGetElapsedTimef();
+    alpha = 1;
+	alphaMax = 127;
+    //startTime = ofGetElapsedTimef();
     
     synth = new ofxSCSynth("mySaw");
     synth->set("gate", 1);
@@ -18,7 +18,17 @@ SawSynth::SawSynth(int n){
     synth->create();
     
     freq = 20.0 * powf(1.5, nth);
-    height = float(ofGetHeight()) / freq * 12.0;
+    height = float(ofGetHeight()) / freq * 20.0;
+    
+    float direction;
+    if (nth % 2 == 0) {
+        direction = -1.0;
+    } else {
+        direction = 1.0;
+    }
+    detune = ofRandom(0.02, 0.04) * direction;
+    ofSetLineWidth(4.0);
+    //phase += detune * 10.0;
 }
 
 SawSynth::~SawSynth() {
@@ -27,32 +37,31 @@ SawSynth::~SawSynth() {
 
 void SawSynth::update(){
     if (!death) {
-        alpha = (alphaMax/60.0 * (ofGetElapsedTimef() - startTime)) + 1;
-		//alpha += 1;
+        //alpha = (alphaMax/60.0 * (ofGetElapsedTimef() - startTime)) + 1;
+		alpha += 0.04;
         if (alpha > alphaMax) {
             alpha = alphaMax;
         }
     } else {
         alpha -= 1;
     }
-    
+
     phase += detune * 10.0;
-    if (phase > height) {
+    if (phase >= height) {
         phase -= height;
     }
-    if (phase < height) {
+    if (phase <= height) {
         phase += height;
     }
 }
 
 void SawSynth::draw(){
-    if (alpha > 0) {
+    if (alpha > -1) {
         int n = ofGetWidth() / height + 1;
         ofSetColor(alpha);
         ofPushMatrix();
         ofTranslate(0, phase);
-        ofSetLineWidth(2.0);
-        for (int i = -1; i < n; i++) {
+        for (int i = -1; i < n + 1; i++) {
             ofLine(0, height * i, ofGetWidth(), height * i);
         }
         ofPopMatrix();

@@ -1,5 +1,5 @@
 (
-SynthDef(\simple_sine, {
+SynthDef("simple_sine", {
 	arg outbus=0, freq=440, pan=0.0, lfoFreq=1.0, amp=0.5, gate=0;
 	var mix, env, lfo;
 	lfo = SinOsc.kr(lfoFreq,0,0.5);
@@ -9,7 +9,7 @@ SynthDef(\simple_sine, {
 	Out.ar(3, mix);
 }).store;
 
-SynthDef(\mySaw, {
+SynthDef("mySaw", {
 	arg amp=0.02, pan = 0.0, freq=50, detune=2.0, decay=0.1;
 	var env, out;
 	out = Pan2.ar(Saw.ar(freq)+Saw.ar(freq*1.002), pan);
@@ -18,7 +18,7 @@ SynthDef(\mySaw, {
 	Out.ar(3, out);
 }).store;
 
-SynthDef(\fx, {
+SynthDef("fx", {
 	var in, out;
 	in = In.ar(3, 2);
 	2.do({ in = AllpassL.ar(in, 0.1, LFNoise2.kr([rrand(0.01, 0.1),rrand(0.01, 0.1)], 0.04, 0.08), 4.0) });
@@ -26,10 +26,10 @@ SynthDef(\fx, {
 	Out.ar(0, out);
 }).store;
 
-SynthDef(\harmony, {
+SynthDef("harmony", {
 	arg lpf=1200, rq=1.2,atk=0.001,rel=2.0, modSpeed=8.4,modMix=1.0,fx=0.3, gain=1.0 ,amp = 1.0, gate=1;
 	var rfreq, ratio, n, d, p, q, mode, z, w, pul, mod,out;
-	n = 128;
+	n = 64;
 	ratio = 1.5;
 	pul = Impulse.ar(modSpeed);
 	p = FloatArray.new(3*n);
@@ -43,7 +43,7 @@ SynthDef(\harmony, {
 		p.add(freq + d.rand2);
 		p.add(freq + d.rand2);
 		});
-	n.do({ arg i;  
+	n.do({ arg i;
 		var freq;
 		freq = p.at(3*i);
 		q.add(freq + d.rand2);
@@ -51,11 +51,11 @@ SynthDef(\harmony, {
 		q.add(freq + d.rand2);
 		});
 	z = [`[p, nil, FloatArray.rand(3*n, 0, 2pi)],
-		`[q, nil, FloatArray.rand(3*n, 0, 2pi)]];	
+		`[q, nil, FloatArray.rand(3*n, 0, 2pi)]];
 	out = Klang.ar(z, 1, 0)*(1.0/n);
 	rfreq = Latch.kr(WhiteNoise.ar(500, 500), pul);
-	out = RLPF.ar(out, 
-				//lpf * (Latch.ar(BrownNoise.ar, Impulse.ar(modSpeed)) * 0.5 + 1.0) + 20 , 
+	out = RLPF.ar(out,
+				//lpf * (Latch.ar(BrownNoise.ar, Impulse.ar(modSpeed)) * 0.5 + 1.0) + 20 ,
 				//lpf + Latch.ar(BrownNoise.ar(90,100), Impulse.ar(modSpeed)),
 				lpf * Latch.ar(1.0 + BrownNoise.ar(0.5, 0.6), Impulse.ar(modSpeed)),
 				Latch.ar(BrownNoise.ar(1.2, 1.3), Impulse.ar(modSpeed)));
@@ -70,14 +70,14 @@ SynthDef(\harmony, {
 	Out.ar(0, out);
 }).store;
 
-SynthDef(\sawbass, {
+SynthDef("sawbass", {
 	arg base=20, lpf=20, rq=0.4, amp=0.7;
 	var detune, harm, ratio, s1, s2, s3, s4, s5, s6, s7, s8, w, mod, pul, out;
 	ratio = 2;
 	harm = 1.5;
 	detune = 0.1;
 	pul = Impulse.ar(12.0);
-	
+
 	s1 = Saw.ar([base+detune.rand, base+detune.rand])*amp
 	+ Saw.ar([base*harm+detune.rand, base*harm+detune.rand])*amp;
 	s2 = Saw.ar([base+detune.rand, base+detune.rand]*ratio)*(amp/2.0)
@@ -90,7 +90,7 @@ SynthDef(\sawbass, {
 	+ Saw.ar([base*harm+detune.rand, base*harm+detune.rand]*(ratio**4))*amp/16.0;
 	s6 = Saw.ar([base+detune.rand, base+detune.rand]*(ratio**5))*amp/16
 	+ Saw.ar([base*harm+detune.rand, base*harm+detune.rand]*(ratio**5))*amp/16;
-	
+
 	out = RLPF.ar(s1+s2+s3+s4+s5+s6, lpf, rq);
 	2.do({ out = AllpassL.ar(out, 0.1, LFNoise2.kr([rrand(0.0, 0.1),rrand(0.0, 0.1)],0.03,0.2), 2) });
 	out = out * Decay2.ar(pul, 0.01, 0.3);
@@ -102,7 +102,7 @@ SynthDef(\sawbass, {
 )
 
 //---------------------------------------------------
-a = Synth("harmony");		
+a = Synth("harmony");
 a.free;
 
 a = Synth("sawbass");
@@ -157,24 +157,24 @@ SynthDef(\reverb, {
 
   n = rrand(1, 24);
   SynthDef(
-    "glitch" ++ i.asString, 
+    "glitch" ++ i.asString,
     {
 	    arg dur = 0.1, amp = 0.1;
 	    var out, mix;
 		out = RLPF.ar(
 			Pan2.ar(
-			Klang.ar(`[ Array.exprand(n, 50.0, 4000.0), 
+			Klang.ar(`[ Array.exprand(n, 50.0, 4000.0),
 				Array.exprand(n, 1.0, 4.0), nil ], 1, 0), rrand(-0.5, 0.5))
 				//,
-Ê Ê Ê Ê Ê Ê Ê 	//* EnvGen.kr(Env.sine(0.8), 1, 1.0, doneAction: 2),
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ 	//* EnvGen.kr(Env.sine(0.8), 1, 1.0, doneAction: 2),
 				* EnvGen.kr(Env.linen(0.001, dur, 0.01), 1, exprand(0.1,1.0), doneAction: 2),
 			exprand(50, 20000), 1.0
 		).ring1(
 			SinOsc.ar(exprand(1, 100), [0,0.5pi])
 		) * amp;
 		Out.ar(0, out);
-		
-Ê Ê Ê Ê }).store
+
+ï¿½ ï¿½ ï¿½ ï¿½ }).store
 });
 
 a = Synth("reverb");
@@ -191,18 +191,18 @@ Task({
   var dur=0.1, inst = \glitch0, amp = 0.05;
   inf.do({	// do forever
   	// 30% chance of picking new synth
-    if (0.9.coin, { 
+    if (0.9.coin, {
       inst = "glitch" ++ 20.rand.asString;
       amp = exprand(0.3,1.0);
     });
     // allocate new synth on server
-    s.sendBundle(0.2, [ 
-      \s_new, inst, -1, 0, 0, 
+    s.sendBundle(0.2, [
+      \s_new, inst, -1, 0, 0,
       \amp, amp,
       \dur, dur,
       \rate, exprand(0.5,2)
     ]);
-    if (dur.coin, { 
+    if (dur.coin, {
   	  dur = rrand(0.2, 0.5);
     });
     dur.wait;
@@ -236,10 +236,10 @@ SynthDef(\harmonize, {
 	var in, out;
 	in = (In.ar(0, 2)*2).clip2.ring1(
 			SinOsc.ar(ring, [0,0.5pi])
-		); 
+		);
 	out = CombL.ar(
 		in,
-		0.5, 
+		0.5,
 		comb, // mouse y controls delay time
 		4,
 		1,

@@ -4,7 +4,7 @@
 void testApp::setup(){
     ofSetFrameRate(60);
     ofBackgroundHex(0x000000);
-    //ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
     //ofEnableSmoothing();
     //ofSetVerticalSync(true);
     
@@ -29,7 +29,8 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    for (int i = saws.size()-1; i >= 0; i--) {
+    for (int i = 0; i < saws.size(); i++) {
+    //for (int i = saws.size()-1; i >= 0; i--) {
         saws[i]->draw();
     }
 }
