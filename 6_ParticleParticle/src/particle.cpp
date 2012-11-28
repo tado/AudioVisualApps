@@ -179,7 +179,8 @@ void particle::update(){
 //------------------------------------------------------------
 void particle::draw(){
     int pow = (abs(frc.x) + abs(frc.y)) * 6 + 2;
-    ofRect(pos.x, pos.y, pow, pow);
+    //ofRect(pos.x, pos.y, pow, pow);
+	ofCircle(pos.x, pos.y, pow/2);
 }
 
 
