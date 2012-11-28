@@ -39,8 +39,7 @@ SawSynth::~SawSynth() {
 void SawSynth::update(){
     if (!death) {
         //alpha = (alphaMax/60.0 * (ofGetElapsedTimef() - startTime)) + 1;
-        //alpha += 0.04;
-        alpha += 1.0;
+        alpha += 0.05;
         if (alpha > alphaMax) {
             alpha = alphaMax;
         }
