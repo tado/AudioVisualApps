@@ -59,17 +59,21 @@ void testApp::keyReleased(int key){
         if(saws.size()>0){
             saws[0]->synth->free();
             //saws.pop_front();
+            saws[saws.size()-1]->deleteBack = false;
             saws[0]->death = true;
         }
     }
     if (key == 'd') {
         if(saws.size()>0){
             saws[saws.size()-1]->synth->free();
-            saws.pop_back();
+            //saws.pop_back();
+            saws[saws.size()-1]->deleteBack = true;
+            saws[saws.size()-1]->death = true;
         }
     }
     if (key == 'f') {
         ofToggleFullscreen();
+        ofHideCursor();
     }
 }
 

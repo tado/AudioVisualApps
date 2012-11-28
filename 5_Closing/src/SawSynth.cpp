@@ -6,7 +6,7 @@ SawSynth::SawSynth(int n){
     detune = ofRandom(-0.1, 0.1);
     nth = n;
     alpha = 1;
-	alphaMax = 127;
+    alphaMax = 127;
     //startTime = ofGetElapsedTimef();
     
     synth = new ofxSCSynth("mySaw");
@@ -29,6 +29,7 @@ SawSynth::SawSynth(int n){
     detune = ofRandom(0.02, 0.04) * direction;
     ofSetLineWidth(4.0);
     //phase += detune * 10.0;
+    deleteBack = false;
 }
 
 SawSynth::~SawSynth() {
@@ -38,25 +39,25 @@ SawSynth::~SawSynth() {
 void SawSynth::update(){
     if (!death) {
         //alpha = (alphaMax/60.0 * (ofGetElapsedTimef() - startTime)) + 1;
-		alpha += 0.04;
+        alpha += 0.04;
         if (alpha > alphaMax) {
             alpha = alphaMax;
         }
     } else {
         alpha -= 1;
     }
-
+    
     phase += detune * 10.0;
-    if (phase >= height) {
-        phase -= height;
+    if (phase > height) {
+        phase  = 0;
     }
-    if (phase <= height) {
-        phase += height;
+    if (phase < -height) {
+        phase = 0;
     }
 }
 
 void SawSynth::draw(){
-    if (alpha > -1) {
+    if (alpha > 0) {
         int n = ofGetWidth() / height + 1;
         ofSetColor(alpha);
         ofPushMatrix();
@@ -66,7 +67,11 @@ void SawSynth::draw(){
         }
         ofPopMatrix();
     } else {
-        ((testApp*) ofGetAppPtr())->saws.pop_front();
+        if (deleteBack) {
+            ((testApp*) ofGetAppPtr())->saws.pop_back();
+        } else {
+            ((testApp*) ofGetAppPtr())->saws.pop_front();
+        }
     }
 }
 
