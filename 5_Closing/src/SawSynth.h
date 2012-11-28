@@ -30,5 +30,5 @@ public:
     float height;
     bool death;
 	float alphaMax;
-    bool deleteBack;
+    int deleteMode; // 0:none, 1:front, 2:back
 };

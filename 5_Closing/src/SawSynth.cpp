@@ -29,7 +29,7 @@ SawSynth::SawSynth(int n){
     detune = ofRandom(0.02, 0.04) * direction;
     ofSetLineWidth(4.0);
     //phase += detune * 10.0;
-    deleteBack = false;
+    deleteMode = 0;
 }
 
 SawSynth::~SawSynth() {
@@ -39,7 +39,8 @@ SawSynth::~SawSynth() {
 void SawSynth::update(){
     if (!death) {
         //alpha = (alphaMax/60.0 * (ofGetElapsedTimef() - startTime)) + 1;
-        alpha += 0.04;
+        //alpha += 0.04;
+        alpha += 1.0;
         if (alpha > alphaMax) {
             alpha = alphaMax;
         }
@@ -67,10 +68,15 @@ void SawSynth::draw(){
         }
         ofPopMatrix();
     } else {
-        if (deleteBack) {
-            ((testApp*) ofGetAppPtr())->saws.pop_back();
-        } else {
-            ((testApp*) ofGetAppPtr())->saws.pop_front();
+        switch (deleteMode) {
+            case 1:
+                ((testApp*) ofGetAppPtr())->saws.pop_front();
+                break;
+            case 2:
+                ((testApp*) ofGetAppPtr())->saws.pop_back();
+            case 0:
+            default:
+                break;
         }
     }
 }
