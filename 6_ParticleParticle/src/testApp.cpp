@@ -55,15 +55,15 @@ void testApp::update(){
     
     for (int i = 0; i < myParticles.size(); i++){
         for (int j = i-1; j >= 0; j--){
-            if ( fabs(myParticles[j]->pos.x - myParticles[i]->pos.x) >  30) break;
-            myParticles[i]->addRepulsionForce( *myParticles[j], 30, 1.2f);
+            if ( fabs(myParticles[j]->pos.x - myParticles[i]->pos.x) >  40) break;
+            myParticles[i]->addRepulsionForce( *myParticles[j], 40, 1.5f);
         }
     }
     
     
     for (int i = 0; i < myParticles.size(); i++){
-        myParticles[i]->addAttractionForce(ofGetWidth()/2, ofGetHeight()/2, ofGetWidth(), 0.2f);
-        myParticles[i]->addRepulsionForce( mouseX,mouseY,50, 2.0);
+        myParticles[i]->addAttractionForce(ofGetWidth()/2, ofGetHeight()/2, ofGetWidth(), 0.4f);
+        myParticles[i]->addRepulsionForce( mouseX,mouseY, 100, 5.0);
         myParticles[i]->addDampingForce();
         myParticles[i]->update();
     }
