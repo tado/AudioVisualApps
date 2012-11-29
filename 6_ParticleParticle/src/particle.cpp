@@ -178,9 +178,9 @@ void particle::update(){
 
 //------------------------------------------------------------
 void particle::draw(){
-    float pow = (abs(frc.x) + abs(frc.y)) * 6.0 + 2.0;
-    ofRect(pos.x, pos.y, pow, pow);
-	//ofCircle(pos.x, pos.y, pow/2);
+    float pow = (abs(frc.x) + abs(frc.y)) * 3.0 + 1.0;
+    //ofRect(pos.x, pos.y, pow, pow);
+	ofCircle(pos.x, pos.y, pow);
 }
 
 

@@ -23,7 +23,7 @@ void testApp::setup(){
      }
      */
     
-    ofSetCircleResolution(6);
+    ofSetCircleResolution(32);
     ofSetRectMode(OF_RECTMODE_CENTER);
 }
 
