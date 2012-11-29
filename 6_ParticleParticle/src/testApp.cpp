@@ -1,6 +1,5 @@
 #include "testApp.h"
 #include "particle.h"
-
 #include "ofMain.h"
 
 // comparison routine for sort...
@@ -15,7 +14,7 @@ void testApp::setup(){
     ofBackground(0);
     
     /*
-     for (int i = 0; i < 1000; i++){
+     for (int i = 0; i < num; i++){
      particle * p = new particle();
      myParticles.push_back(p);
      myParticles[i]->pos.set(ofRandom(0,ofGetWidth()),ofRandom(0,ofGetHeight()));
@@ -25,12 +24,13 @@ void testApp::setup(){
     
     ofSetCircleResolution(32);
     ofSetRectMode(OF_RECTMODE_CENTER);
+    pressed = false;
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     /*
-     if (myParticles.size() < 1000) {
+     if (myParticles.size() < num) {
      for (int i = 0; i < 10; i++) {
      particle * p = new particle();
      myParticles.push_back(p);
@@ -60,10 +60,11 @@ void testApp::update(){
         }
     }
     
-    
     for (int i = 0; i < myParticles.size(); i++){
         myParticles[i]->addAttractionForce(ofGetWidth()/2, ofGetHeight()/2, ofGetWidth(), 0.4f);
-        myParticles[i]->addRepulsionForce( mouseX,mouseY, 100, 5.0);
+        if (pressed) {
+            myParticles[i]->addRepulsionForce( mouseX,mouseY, 200, 2.0);
+        }
         myParticles[i]->addDampingForce();
         myParticles[i]->update();
     }
@@ -88,15 +89,16 @@ void testApp::keyPressed  (int key){
     }
     if (key == 'r') {
         myParticles.clear();
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < num; i++){
             particle * p = new particle();
+            //p->pos.set(ofGetWidth()/2 + ofRandom(-200, 200), ofGetHeight()/2+ ofRandom(-200, 200));
+            p->pos.set(ofRandom(0,ofGetWidth()),ofRandom(0,ofGetHeight()));
+            p->vel.set(0,0);
             myParticles.push_back(p);
-            myParticles[i]->pos.set(ofRandom(0,ofGetWidth()),ofRandom(0,ofGetHeight()));
-            myParticles[i]->vel.set(0,0);
         }
     }
-    
 }
+
 //--------------------------------------------------------------
 void testApp::keyReleased  (int key){
     
@@ -114,10 +116,10 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-    
+    pressed = true;
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(){
-    
+    pressed = false;
 }
