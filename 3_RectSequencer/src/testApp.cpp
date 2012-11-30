@@ -19,7 +19,7 @@ void testApp::setup() {
 	
 	bDrawRect = false;
 	
-	reverb = new ofxSCSynth("fx");
+	reverb = new ofxSCSynth("rect_fx");
     reverb->create();
 }
 

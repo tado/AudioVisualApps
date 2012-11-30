@@ -20,7 +20,7 @@ void testApp::setup() {
 	ofAddListener(box2d.contactStartEvents, this, &testApp::contactStart);
 	ofAddListener(box2d.contactEndEvents, this, &testApp::contactEnd);
 	
-	reverb = new ofxSCSynth("fx");
+	reverb = new ofxSCSynth("fall_fx");
     reverb->create();
 	
 	mouseDowned = false;
@@ -34,7 +34,7 @@ void testApp::contactStart(ofxBox2dContactArgs &e) {
 	if(e.a != NULL && e.b != NULL) { 
 		float pan = (e.b->GetBody()->GetPosition().x * OFX_BOX2D_SCALE / ofGetWidth() * 2.0 - 1.0);
 		float mass2 = e.b->GetBody()->GetMass();
-		float freq = log(12.0/mass2)*2000.0;
+		float freq = log(12.0/mass2)*1000.0;
 		if(freq < 120){
 			freq = 120;
 		}
@@ -42,9 +42,9 @@ void testApp::contactStart(ofxBox2dContactArgs &e) {
 		if (decay>1.0) {
 			decay = 1.0;
 		}
-		float amp = 0.1;
+		float amp = 0.05;
 		
-		perc = new ofxSCSynth("perc");
+		perc = new ofxSCSynth("fall_perc");
 		perc->set("amp", amp);
 		perc->set("freq", freq);
 		perc->set("decay", decay);
@@ -112,7 +112,7 @@ void testApp::keyPressed(int key) {
 	}
 	if (key == 'c') {
 		ofxBox2dCircle *c =new ofxBox2dCircle();
-		c->setPhysics(1.5, 0.8, 1.0); //物理パラメータを設定
+		c->setPhysics(1.5, 0.7, 1.0); //物理パラメータを設定
 		c->setup(box2d.getWorld(), mouseX, mouseY, ofRandom(0.5,20));
 		circles.push_back(c); //生成した円をcirclesベクターに追加
 		mouseDowned = false;
@@ -166,7 +166,7 @@ void testApp::mouseReleased(int x, int y, int button) {
     }
 
     ofxBox2dCircle *c =new ofxBox2dCircle();
-    c->setPhysics(1.0, 0.9, 1.0); //物理パラメータを設定
+    c->setPhysics(1.5, 0.7, 1.0); //物理パラメータを設定
     c->setup(box2d.getWorld(), mouseDownLoc.x, mouseDownLoc.y, r); //マウスの位置に円を設定
     circles.push_back(c); //生成した円をcirclesベクターに追加
     mouseDowned = false;

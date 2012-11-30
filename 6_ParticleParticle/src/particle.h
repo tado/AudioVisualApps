@@ -2,6 +2,7 @@
 #define PARTICLE_H
 
 #include "ofMain.h"
+#include "ofxSuperCollider.h"
 
 class particle
 {
@@ -30,9 +31,10 @@ public:
     void draw();
     
     void bounceOffWalls();
-    
-    
     float damping;
+    
+    ofxSCSynth *perc;
+    bool ready;
     
 protected:
 private:

@@ -12,7 +12,7 @@ CustomRect::CustomRect(int _num) {
 	//音程を決める
 	num = num % 100;
 	soundSpeed = notes[num%4] * base[num%6] * pow(1.5, 1.0+int(num/16.0));
-	synth = new ofxSCSynth("simple_sine");
+	synth = new ofxSCSynth("node_sine");
 	synth->set("freq", soundSpeed * 30);
 	synth->set("lfoFreq", lfo);
 	synth->set("amp", 0);

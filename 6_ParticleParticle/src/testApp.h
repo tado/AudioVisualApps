@@ -13,6 +13,7 @@ public:
     void setup();
     void update();
     void draw();
+    void exit();
     
     void keyPressed  (int key);
     void keyReleased (int key);
@@ -26,6 +27,7 @@ public:
     const int num = 1000;
     bool pressed;
     ofxSCSynth *synth;
+    bool ready;
 };
 
 #endif

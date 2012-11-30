@@ -32,7 +32,7 @@ GlitchRect::GlitchRect(ofPoint _pos, float _width, float _height)
     clipImage.grabScreen(pos.x + width/2 - width/scale/2, pos.y + height/2 - height/scale/2, width/scale, height/scale);
 
     //synth
-    synth = new ofxSCSynth("harmony");
+    synth = new ofxSCSynth("col_harmony");
     synth->set("lpf", 80);
     synth->set("rq", 1.0);
     synth->set("amp", 1.5);

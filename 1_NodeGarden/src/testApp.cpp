@@ -13,13 +13,13 @@ void testApp::setup() {
 	box2d.init();
 	box2d.setGravity(0, 0);
 	box2d.setFPS(30.0);
-
+    
 	particleImage.loadImage("emitter.png");
 	dacImage.loadImage("particle.png");
 	
-	reverb = new ofxSCSynth("fx");
+	reverb = new ofxSCSynth("node_fx");
     reverb->create();
-
+    
 	dac.setPhysics(100.0, 0.1, 0.2);
 	dac.fixture.filter.groupIndex = -1;
 	dac.setup(box2d.getWorld(), ofGetWidth()/2, ofGetHeight()/2, 1, 1);
@@ -36,7 +36,7 @@ void testApp::exit() {
 //--------------------------------------------------------------
 void testApp::update() {
 	
-	box2d.update();	
+	box2d.update();
 	//ofVec2f center(ofGetWidth()/2, ofGetHeight()/2);
 	for(int i=0; i<boxes.size(); i++) {
 		boxes[i].update();
@@ -45,7 +45,7 @@ void testApp::update() {
 		boxes[i].center = dac.getPosition();
 		ofVec2f p1 (boxes[i].getPosition());
 		for (int j = i + 1; j < boxes.size(); j++) {
-			boxes[j].addAttractionPoint(p1, 0.00001);			
+			boxes[j].addAttractionPoint(p1, 0.00001);
 		}
 	}
 }
@@ -78,7 +78,7 @@ void testApp::draw() {
 	for (int i = 0; i < boxes.size(); i++) {
 		allAmp += boxes[i].amp * 12.0;
 	}
-
+    
 	float dacRadius = sin(ofGetElapsedTimef() * 100.0) * allAmp + allAmp * 3.0 + 40;
 	ofVec2f offset (dacRadius, dacRadius);
 	ofSetHexColor(0xffffff);
@@ -93,7 +93,10 @@ void testApp::draw() {
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key) {
-	if(key == 'f') ofToggleFullscreen();
+	if(key == 'f'){
+        ofToggleFullscreen();
+        dac.setPosition(ofGetWidth()/2, ofGetHeight()/2);
+    }
 	if (key == 'd') {
 		if (boxes.size()>0) {
 			boxes[0].synth->set("amp", 0);
@@ -115,30 +118,33 @@ void testApp::mouseMoved(int x, int y ) {
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button) {
-	if (button == 2) {
-		dac.setPosition(x, y);
-	}
+    if (ofPoint(x, y).distance(dac.getPosition()) < 40.0)  {
+        dac.setPosition(x, y);
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button) {
-	if(button == 0) {
-		float w = 2;
-		float h = 2;
-		CustomRect rect(boxes.size());
-		rect.setPhysics(10.0, 0.1, 0.5);
-		rect.fixture.filter.groupIndex = -1;
-		rect.setup(box2d.getWorld(), mouseX, mouseY, w, h);
-		boxes.push_back(rect);
+    if(button == 0) {
+        if (ofPoint(x, y).distance(dac.getPosition()) >= 40.0)  {
+            float w = 2;
+            float h = 2;
+            CustomRect rect(boxes.size());
+            rect.setPhysics(10.0, 0.1, 0.5);
+            rect.fixture.filter.groupIndex = -1;
+            rect.setup(box2d.getWorld(), mouseX, mouseY, w, h);
+            boxes.push_back(rect);
+        }
 	}
-	
-	if (button == 2) {
-		dac.setPosition(x, y);
-	}
+    //
+    //	if (button == 1) {
+    //		dac.setPosition(x, y);
+    //	}
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button) {
+    
 }
 
 //--------------------------------------------------------------

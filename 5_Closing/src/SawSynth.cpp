@@ -9,7 +9,7 @@ SawSynth::SawSynth(int n){
     alphaMax = 127;
     //startTime = ofGetElapsedTimef();
     
-    synth = new ofxSCSynth("mySaw");
+    synth = new ofxSCSynth("close_saw");
     synth->set("gate", 1);
     synth->set("amp", 0.5);
     synth->set("rq", 1.0);

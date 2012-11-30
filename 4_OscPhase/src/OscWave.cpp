@@ -19,7 +19,7 @@ OscWave::OscWave(int _index, float _freq, float _pan, float _lfo, float _amp, fl
     
     lineWidth = 2;
     
-    synth = new ofxSCSynth("simple_sine");
+    synth = new ofxSCSynth("col_sine");
     synth->create();
     synth->set("gate", 1);
     synth->set("freq", freq);

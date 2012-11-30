@@ -14,7 +14,7 @@ Flicker::Flicker(float _freq, float _level)
     level = _level;
     
     //synth
-    synth = new ofxSCSynth("sawbass");
+    synth = new ofxSCSynth("col_sawbass");
     synth->set("amp", 1.0);
     synth->create();
 }

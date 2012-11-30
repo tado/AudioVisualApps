@@ -18,7 +18,7 @@ MyRect::MyRect(ofPoint _pos,
     
     scanPos = 0;
     
-    perc = new ofxSCSynth("mySaw");
+    perc = new ofxSCSynth("rect_saw");
     perc->set("amp", amp);
     perc->set("freq", freq);
     perc->set("decay", width/scanSpeed/60.0);
@@ -32,7 +32,7 @@ void MyRect::update()
     if (scanPos > width) {
         scanPos -= width;
         
-        perc = new ofxSCSynth("mySaw");
+        perc = new ofxSCSynth("rect_saw");
         perc->set("amp", amp);
         perc->set("freq", freq);
         perc->set("decay", width/scanSpeed/60.0);

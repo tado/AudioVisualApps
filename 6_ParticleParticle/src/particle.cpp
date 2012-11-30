@@ -5,6 +5,7 @@
 particle::particle(){
 	setInitialCondition(0,0,0,0);
 	damping = 0.01f;
+    ready = false;
 }
 
 //------------------------------------------------------------
@@ -174,6 +175,9 @@ void particle::setInitialCondition(float px, float py, float vx, float vy){
 void particle::update(){	
 	vel = vel + frc;
 	pos = pos + vel;
+    if (abs(frc.x) + abs(frc.y) == 0.0) {
+        ready = true;
+    }
 }
 
 //------------------------------------------------------------
@@ -181,6 +185,18 @@ void particle::draw(){
     float pow = (abs(frc.x) + abs(frc.y)) * 3.0 + 1.0;
     //ofRect(pos.x, pos.y, pow, pow);
 	ofCircle(pos.x, pos.y, pow);
+    
+    if (pow > 9.0) {
+        float pan = ofMap(pos.x, 0, ofGetWidth(), -1.0, 1.0);
+        float freq = ofMap(pos.y, 0, ofGetHeight(), 8000, 100);
+        perc = new ofxSCSynth("particle");
+		perc->set("amp", pow / 200.0);
+		perc->set("freq", freq);
+		perc->set("decay", 0.5);
+		perc->set("pan", pan);
+		perc->create();
+        ready = false;
+    }
 }
 
 

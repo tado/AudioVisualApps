@@ -10,7 +10,7 @@ void testApp::setup(){
     
     ofxSuperColliderServer::init();
     
-    fx = new ofxSCSynth("fx");
+    fx = new ofxSCSynth("close_fx");
     fx->set("lpf", 1000);
     fx->set("amp", 1.5);
     fx->create();

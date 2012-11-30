@@ -11,7 +11,7 @@ void testApp::setup(){
     
     ofxSuperColliderServer::init();
     
-    fx = new ofxSCSynth("fx");
+    fx = new ofxSCSynth("col_fx");
     fx->create();
     
     pitchRatio[0]= 1.0;

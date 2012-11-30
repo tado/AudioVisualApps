@@ -1,5 +1,5 @@
 (
-SynthDef("fx", {
+SynthDef("close_fx", {
 	arg lpf=440, rq=0.5, amp=0.8;
 	var in, out;
 	in = In.ar(3, 2);
@@ -9,7 +9,7 @@ SynthDef("fx", {
 	Out.ar(0, out);
 }).store;
 
-SynthDef("mySaw", {
+SynthDef("close_saw", {
 	arg fadeTime = 30, n = 0, rq = 0.3, detune = 0.001, base = 20, ratio = 1.5, harm = 1.5, amp = 0.2, gate=0;
 	var lfo, env, out;
 	env = EnvGen.kr(Env.new([0,1], [fadeTime], 'sine'));
