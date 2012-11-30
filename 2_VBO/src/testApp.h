@@ -2,7 +2,7 @@
 #include "ofMain.h"
 #include "ofVbo.h"
 
-#define	NUM_BILLBOARDS	40000
+#define	NUM_BILLBOARDS	20000
 
 class testApp : public ofBaseApp {
 	

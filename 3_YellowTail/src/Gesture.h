@@ -8,6 +8,7 @@
 
 #pragma once
 #include "ofMain.h"
+#include "ofxSuperCollider.h"
 
 class Gesture {
 public:
@@ -18,5 +19,6 @@ public:
 	void draw();
 	vector<ofVec2f> pos;
 	ofVec2f jump;
-
+    ofxSCSynth *synth;
+    int length;
 };

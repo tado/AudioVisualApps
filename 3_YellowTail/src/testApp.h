@@ -2,12 +2,15 @@
 
 #include "ofMain.h"
 #include "Gesture.h"
+#include "ofxSuperCollider.h"
+#include "ofxSuperColliderServer.h"
 
 class testApp : public ofBaseApp{
 public:
 	void setup();
 	void update();
 	void draw();
+    void exit();
 	
 	void keyPressed(int key);
 	void keyReleased(int key);
@@ -19,7 +22,9 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 	
-	vector<Gesture *> gestures;
+	deque<Gesture *> gestures;
 	bool pressed;
 	ofVec2f lastMouse;
+    ofxSCSynth *synth;
+    int max;
 };

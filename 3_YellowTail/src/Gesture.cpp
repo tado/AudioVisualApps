@@ -9,7 +9,11 @@
 #include "Gesture.h"
 
 Gesture::Gesture() {
+    length = 32;
 	jump.set(0, 0);
+    synth = new ofxSCSynth("yellow_sine");
+    synth->set("amp", 0);
+    synth->create();
 }
 
 void Gesture::update(){
@@ -32,50 +36,35 @@ void Gesture::update(){
 		if (pos[0].y > ofGetHeight()) {
 			pos[0].y -= ofGetHeight();
 		}
-		
-		/*
-		if (pos[0].x < 0) {
-			for (int i = 0; i < pos.size()-1; i++){
-				pos[i].x += ofGetWidth();
-			}
-		}
-		if (pos[0].y < 0) {
-			for (int i = 0; i < pos.size()-1; i++){
-				pos[i].y += ofGetHeight();
-			}
-		}
-		if (pos[0].x > ofGetWidth()) {
-			for (int i = 0; i < pos.size()-1; i++){
-				pos[i].x -= ofGetWidth();
-			}
-		}
-		if (pos[0].y > ofGetHeight()) {
-			for (int i = 0; i < pos.size()-1; i++){
-				pos[i].y -= ofGetHeight();
-			}
-		}
-		 */
-	}
+        
+        int freq = ofMap(pos[0].y, 0, ofGetHeight(), 2000, 800);
+        //float dist = pos[0].distance(ofVec2f(ofGetWidth()/2, ofGetHeight()/2));
+        //float freq = 1000 - log10(dist) * 1000;
+        //float freq = log10(pos[0].y) * 1500;
+        float pan = ofMap(pos[0].x, 0, ofGetWidth(), -1.0, 1.0);
+        synth->set("freq", freq);
+        synth->set("pan", pan);
+        synth->set("amp", 0.1);
+    } else {
+        
+    }
 }
 
 void Gesture::draw(){
-	ofNoFill();
-	ofSetLineWidth(1);
-	
-	for (int i = 1; i < pos.size()-1; i++) {
-		float dist = pos[i].distance(pos[i-1]);
-		if (dist < ofGetHeight()/2) {
-			//ofSetLineWidth(dist / 2.0f);
-			ofLine(pos[i].x, pos[i].y ,pos[i-1].x, pos[i-1].y);
-		}
-	}
-	
+    if (pos.size()>1) {        
+        for (int i = 1; i < pos.size()-1; i++) {
+            float dist = pos[i].distance(pos[i-1]);
+            if (pos[i].distance(pos[i-1]) < ofGetHeight()/2) {
+                ofLine(pos[i].x, pos[i].y ,pos[i-1].x, pos[i-1].y);
+            }
+        }
+    }
 }
 
 void Gesture::addPoint(ofVec2f _pos){
-	pos.push_back(_pos);
-	if (pos.size() > 0) {
-		jump.x = _pos.x - pos[0].x;
-		jump.y = _pos.y - pos[0].y;
-	}
+    pos.push_back(_pos);
+    if (pos.size() > 1) {
+        jump.x = _pos.x - pos[0].x;
+        jump.y = _pos.y - pos[0].y;
+    }
 }
