@@ -8,7 +8,7 @@ void testApp::setup(){
 	ofSetFrameRate(60);
 	ofEnableSmoothing();
 
-    max = 8;
+    max = 10;
 	pressed = false;
     
     ofxSuperColliderServer::init();
@@ -30,15 +30,16 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	ofFill();
-	ofSetColor(0, 47);
-	ofRect(0, 0, ofGetWidth(), ofGetHeight());
-
+    fade();
+    
     ofNoFill();
 	ofSetColor(255);
 	for (int i = 0; i < gestures.size(); i++) {
 		gestures[i]->draw();
 	}
+    
+    ofDrawBitmapString("gestures num = " + ofToString(gestures.size()), 10, 20);
+    ofDrawBitmapString("f: fullscreen, r: clear, d: pop_front", 10, 40);
 }
 
 void testApp::exit(){
@@ -46,6 +47,12 @@ void testApp::exit(){
         gestures[i]->synth->free();
     }
     synth->free();
+}
+
+void testApp::fade(){
+    ofFill();
+	ofSetColor(0, 31);
+	ofRect(0, 0, ofGetWidth(), ofGetHeight());
 }
 
 //--------------------------------------------------------------
@@ -59,6 +66,13 @@ void testApp::keyPressed(int key){
         }
         gestures.clear();
 	}
+    if (key == 'd') {
+        if (gestures.size() > 0) {
+            gestures[0]->synth->free();
+            //delete gestures[0];
+            gestures.pop_front();
+        }
+    }
 }
 
 //--------------------------------------------------------------
@@ -73,10 +87,11 @@ void testApp::mouseMoved(int x, int y){
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
-    //if (ofVec2f(x,y).distance(lastMouse) < 40) {
-    gestures[gestures.size()-1]->addPoint(ofVec2f(x, y));
-    //}
+    if (ofVec2f(x,y).distance(lastMouse) > 1) {
+        gestures[gestures.size()-1]->addPoint(ofVec2f(x, y));
+    }
 	lastMouse.set(x, y);
+    pressed = true;
 }
 
 //--------------------------------------------------------------
@@ -89,7 +104,7 @@ void testApp::mousePressed(int x, int y, int button){
     
     if (gestures.size() > max) {
         gestures[0]->synth->free();
-        //delete gestures[0];
+        delete gestures[0];
         gestures.pop_front();
     }
 	

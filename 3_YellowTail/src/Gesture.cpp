@@ -36,15 +36,12 @@ void Gesture::update(){
 		if (pos[0].y > ofGetHeight()) {
 			pos[0].y -= ofGetHeight();
 		}
-        
+
         int freq = ofMap(pos[0].y, 0, ofGetHeight(), 2000, 800);
-        //float dist = pos[0].distance(ofVec2f(ofGetWidth()/2, ofGetHeight()/2));
-        //float freq = 1000 - log10(dist) * 1000;
-        //float freq = log10(pos[0].y) * 1500;
         float pan = ofMap(pos[0].x, 0, ofGetWidth(), -1.0, 1.0);
         synth->set("freq", freq);
         synth->set("pan", pan);
-        synth->set("amp", 0.1);
+        synth->set("amp", 0.02);
     } else {
         
     }
@@ -52,7 +49,7 @@ void Gesture::update(){
 
 void Gesture::draw(){
     if (pos.size()>1) {        
-        for (int i = 1; i < pos.size()-1; i++) {
+        for (int i = 1; i < pos.size(); i++) {
             float dist = pos[i].distance(pos[i-1]);
             if (pos[i].distance(pos[i-1]) < ofGetHeight()/2) {
                 ofLine(pos[i].x, pos[i].y ,pos[i-1].x, pos[i-1].y);

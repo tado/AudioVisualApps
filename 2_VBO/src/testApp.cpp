@@ -4,7 +4,8 @@
 void testApp::setup() {
 	// 画面設定
 	ofBackgroundHex(0x000000);
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
+    //ofEnableBlendMode(OF_BLENDMODE_ADD);
 	
 	// カメラ設定
 	zoomTarget = zoom = 2000;
@@ -31,12 +32,12 @@ void testApp::setup() {
 	ofDisableArbTex();
 	
 	// カメラキャプチャー初期化
-	myVideo.initGrabber(32, 28);
+	// myVideo.initGrabber(32, 28);
 }
 
 //--------------------------------------------------------------
 void testApp::update() {
-	
+	/*
 	// カメラ映像を更新
 	myVideo.update();
 	
@@ -48,7 +49,10 @@ void testApp::update() {
 													myVideo.width, 
 													myVideo.height, OF_IMAGE_COLOR);
 	}
+     */
 	
+    texture.loadImage("particle.png");
+    
 	// パーティクルの座標を更新
 	float t   = (ofGetElapsedTimef()) * 0.9f;
 	float div = 250.0;
@@ -91,7 +95,7 @@ void testApp::draw() {
 	// パーティクルのZ軸の位置によって大きさを変化させる
 	static GLfloat distance[] = { 0.0, 0.0, 1.0 }; 
 	glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
-	glPointSize(10000);
+	glPointSize(20000);
 	
 	// パーティクルを描画
 	ofEnableBlendMode(OF_BLENDMODE_ADD);
@@ -105,9 +109,10 @@ void testApp::draw() {
 	
 	// ログを表示
 	ofSetColor(255, 255, 255);
-	string info = ofToString(ofGetFrameRate(), 2)+"\n";
+	string info = ofToString(ofGetFrameRate(), 2)+", ";
 	info += "Particle Count: "+ofToString(NUM_BILLBOARDS)+"\n";
-	ofDrawBitmapString(info, 30, 30);
+    info += "zoom: arrow_up, arrow_down";
+	ofDrawBitmapString(info, 10, 20);
 }
 
 void testApp::keyPressed(int key){

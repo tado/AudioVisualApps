@@ -98,7 +98,7 @@ void testApp::mouseReleased(int x, int y, int button) {
                            ofRandom(1.0, 2.0),
                            thisFreq,
                            ofRandom(-1, 1),
-                           (mouseY - drawPos.y)/1000.0
+                           (mouseY - drawPos.y)/8000.0
                            );
     rects.push_back(r);
 }

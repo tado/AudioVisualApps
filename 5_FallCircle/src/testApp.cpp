@@ -99,10 +99,11 @@ void testApp::draw() {
     }
 	
 	string info = "";
-	info += "Total Bodies: "+ofToString(box2d.getBodyCount())+"\n";
+	info += "Total Bodies: "+ofToString(box2d.getBodyCount())+", ";
 	info += "FPS: "+ofToString(ofGetFrameRate(), 1)+"\n";
-	ofSetHexColor(0x444342);
-	ofDrawBitmapString(info, 30, 30);
+    info += "c: add circle, d: pop_front";
+    ofSetColor(255);
+	ofDrawBitmapString(info, 10, 20);
 }
 
 //--------------------------------------------------------------

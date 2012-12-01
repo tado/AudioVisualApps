@@ -69,6 +69,10 @@ void testApp::draw(){
         myParticles[i]->draw();
     }
     
+    ofDrawBitmapString("particle num = " + ofToString(myParticles.size()), 10, 20);
+    ofDrawBitmapString("f: fullscreen, r: reset", 10, 34);
+
+    
 }
 
 //--------------------------------------------------------------
