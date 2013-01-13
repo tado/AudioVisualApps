@@ -4,7 +4,7 @@ SynthDef("col_sine", {
 	var mix, env, lfo;
 	lfo = SinOsc.kr(lfoFreq,0,0.5);
 	env = EnvGen.kr(Env.new([0,1], [10], 'sine'));
-	mix = SinOsc.ar(freq,0,amp*lfo) * env;
+	mix = SinOsc.ar(freq,0,amp*lfo);
 	mix = PanAz.ar(8, mix, LFSaw.kr(rrand(-1.0, 1.0)));
 	mix = mix * EnvGen.kr(Env.adsr(releaseTime:10), gate, doneAction: 2);
 	Out.ar(0, mix);
@@ -13,7 +13,7 @@ SynthDef("col_sine", {
 SynthDef("col_saw", {
 	arg amp=0.02, pan = 0.0, freq=50, detune=2.0, decay=0.1;
 	var env, out;
-	out = PanAz.ar(8, Saw.ar(freq)+Saw.ar(freq*1.002), LFSaw.kr(rrand(-0.1, 0.1)));
+	out = PanAz.ar(8, Saw.ar(freq)+Saw.ar(freq*1.002), pan * 2.0 - 1.0);
 	env = EnvGen.kr(Env.perc(0.001,decay,1,-4), doneAction: 2);
 	out = out * env * amp;
 	Out.ar(3, out);
@@ -67,7 +67,7 @@ SynthDef("col_harmony", {
 	2.do({ w = AllpassL.ar(w, 0.1, LFNoise2.kr([rrand(0.0, 0.1),rrand(0.0, 0.1)],0.01,0.15), 2) });
 	out = (out * (fx - 1.0)) + (w * fx) * EnvGen.kr(Env.new([0,1], [30], 'sine'));
 	out = out * EnvGen.kr(Env.adsr(releaseTime:10), gate, doneAction: 2);
-	out = PanAz.ar(8, out.at(0), LFSaw.kr(1.0)) + PanAz.ar(8, out.at(1), LFSaw.kr(1.5)) ;
+	out = PanAz.ar(8, out.at(0), LFSaw.kr(3.0)) + PanAz.ar(8, out.at(1), LFSaw.kr(4.0)) ;
 	Out.ar(0, out);
 }).store;
 
@@ -97,7 +97,7 @@ SynthDef("col_sawbass", {
 	out = PanAz.ar(8, out.at(0), LFSaw.kr(5.0)) + PanAz.ar(8, out.at(1), LFSaw.kr(6.0));
 	out = out * Decay2.ar(pul, 0.01, 0.3);
 	out = out * EnvGen.kr(Env.new([0,1], [30], 'sine'));
-	Out.ar(0, out.softclip);
+	Out.ar(3, out.softclip);
 
 }).store;
 

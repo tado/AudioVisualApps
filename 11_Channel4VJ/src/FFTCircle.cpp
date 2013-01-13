@@ -24,9 +24,9 @@ void FFTCircle::draw(){
         magnitude[i] = powf(((testApp*)ofGetAppPtr())->magnitude[i], 0.5);
 		
 		//塗りのアルファ値でFFT解析結果を表現
-		ofSetColor(ofColor::fromHsb(220 * i / fft_size, 255, 7));
+		ofSetColor(ofColor::fromHsb(220 * i / fft_size, 255, 31));
         
-		ofCircle(-w * i, 0, magnitude[i]*40); //左
-		ofCircle(w * i, 0, magnitude[i]*40); //右
+		ofCircle(-w * i, 0, magnitude[i]*60); //左
+		ofCircle(w * i, 0, magnitude[i]*60); //右
 	}
 }

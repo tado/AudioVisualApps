@@ -44,7 +44,7 @@ void FFTGlitch::update()
     int icoin = int(coin);
     //if (int(ofRandom(icoin)) % icoin == 0) {
     if (int(ofGetElapsedTimef()*1000) % tempo < ofGetFrameRate()){
-        scale = ofRandom(2.0, 3.0);
+        scale = ofRandom(2.0, 4.0);
         clipImage.grabScreen(pos.x + width/2 - width/scale/2, pos.y + height/2 - height/scale/2, width/scale, height/scale);
         clipImage.saveImage(compressedFilename, quality);
         ofBuffer file = ofBufferFromFile(compressedFilename, true);
@@ -67,7 +67,7 @@ void FFTGlitch::draw()
 {
     int gray = int(ofMap(amp, 0.0, 0.3, 0, 255));
     //ofSetColor(gray);
-    int br = ((testApp*)ofGetAppPtr())->avg_power * 63 + 31;
+    int br = ((testApp*)ofGetAppPtr())->avg_power * 63;
     ofSetColor(br, br, br);
     
     if (clipImage.width > 0) {
