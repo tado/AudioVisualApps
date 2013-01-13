@@ -17,6 +17,7 @@ public:
     void draw();
     
     int fft_size;
+    float *magnitude;
 };
 
 

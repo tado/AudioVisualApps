@@ -7,6 +7,7 @@ void testApp::setup(){
     ofSetVerticalSync(true);
     ofSetCircleResolution(64);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofHideCursor();
     
     //FFTのサイズとバッファサイズを設定
 	fft_size = 1024;
@@ -21,6 +22,7 @@ void testApp::setup(){
     // Setup light
 	light.setPosition(1000, 1000, 2000);
     cam.setDistance(500);
+    cam.disableMouseInput();
     
     // Setup post-processing chain
     post.init(ofGetWidth(), ofGetHeight());
@@ -47,6 +49,7 @@ void testApp::setup(){
     fftCircle = new FFTCircle();
     fftBox = new FFTBox();
     fftParticle = new FFTParticle();
+    fftGlitch = new FFTGlitch();
     
     //ofSoundStreamListDevices();
     
@@ -57,7 +60,7 @@ void testApp::setup(){
 
 void testApp::update() {
     //FFT変換
-	float avg_power = 0.0f;
+	avg_power = 0.0f;
 	myfft.powerSpectrum(0, (int)fft_size, audio_input, buffer_size,	magnitude, phase, power, &avg_power);
 
     if (mode == 1) {
@@ -71,6 +74,9 @@ void testApp::update() {
     }
     if (mode == 4) {
         fftParticle->update();
+    }
+    if (mode == 5) {
+        fftGlitch->update();
     }
     
     //gui.update();
@@ -94,6 +100,9 @@ void testApp::draw() {
     }
     if (mode == 4) {
         fftParticle->draw();
+    }
+    if (mode == 5) {
+        fftGlitch->draw();
     }
     post.end();
 }
@@ -127,6 +136,9 @@ void testApp::keyPressed(int key){
     if (key == '4') {
         mode = 4;
         fftParticle->reset();
+    }
+    if (key == '5') {
+        mode = 5;
     }
     if (key == '-') {
         audioLevel /= 1.2;

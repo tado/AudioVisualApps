@@ -20,7 +20,7 @@ void FFTRotate::update(){
 
 void FFTRotate::draw(){
     //FFT変換の結果をもとに円を螺旋状に配置
-	circleSize = ofGetHeight()/(float)fft_size/2.5;
+	circleSize = ofGetHeight()/(float)fft_size/3;
     //ofPushMatrix();
 	//ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     for (int i = 0; i < fft_size; i++){

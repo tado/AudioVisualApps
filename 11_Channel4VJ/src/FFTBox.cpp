@@ -16,6 +16,7 @@ FFTBox::FFTBox(){
     vec = new ofVec3f[fft_size];
     rot = new ofVec3f[fft_size];
     vecRot = new ofVec3f[fft_size];
+    magnitude = new float[fft_size];
     
     for (int i = 0; i < fft_size; i++) {
         rot[i] = ofVec3f(ofRandom(90), ofRandom(90), ofRandom(90));
@@ -38,8 +39,9 @@ void FFTBox::draw(){
     //ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     ofSetColor(31, 127, 255);
     for (int i = 0; i < fft_size; i++){
+        magnitude[i] = powf(((testApp*)ofGetAppPtr())->magnitude[i], 0.25);
         //ばねの運動を計算
-        float addFroce = ((testApp*)ofGetAppPtr())->magnitude[i] *20.0;
+        float addFroce = magnitude[i] *20.0;
         float direction = ofRandom(360);
         float addX = cos(direction) * addFroce;
         float addY = sin(direction) * addFroce;

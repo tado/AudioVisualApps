@@ -7,13 +7,14 @@
 //
 
 #include "Fnwr.h"
-
+#include "testApp.h"
 Fnwr::Fnwr(){
     fnwr.loadImage("FNWR1500.png");
 }
 
 void Fnwr::draw(){
-    ofSetColor(ofRandom(127,1024),ofRandom(127,1024),ofRandom(127,1024));
+    int br = ((testApp*)ofGetAppPtr())->avg_power * 63 + 63;
+    ofSetColor(br, br, br);
     ofRotateX(180);
     fnwr.draw(-fnwr.width/2, -fnwr.height/2, 200);
 }

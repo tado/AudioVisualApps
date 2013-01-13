@@ -8,6 +8,7 @@
 #include "FFTRotate.h"
 #include "FFTBox.h"
 #include "FFTParticle.h"
+#include "FFTGlitch.h"
 
 class testApp : public ofBaseApp {
 public:
@@ -24,7 +25,7 @@ public:
     float *audio_input;
 	float *magnitude, *phase, *power;
 	float *magnitude_average, *magnitude_average_snapshot;
-	float avg_powerL, avg_powerR;
+	float avg_power;
 
 	//バッファーサイズとFFTサイズ
 	int buffer_size;
@@ -39,7 +40,8 @@ public:
     FFTRotate *fftRotate;
     FFTBox *fftBox;
     FFTParticle *fftParticle;
-    
+    FFTGlitch *fftGlitch;
+            
     // scene stuff
     ofxPostProcessing post;
     ofEasyCam cam;

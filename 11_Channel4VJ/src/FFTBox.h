@@ -21,6 +21,7 @@ public:
     //パーティクルの位置とスピード
     ofVec3f *pos, *vec;
     ofVec3f *rot, *vecRot;
+    float *magnitude;
     int fft_size;
 };
 
