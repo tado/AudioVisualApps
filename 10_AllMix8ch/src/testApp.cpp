@@ -11,10 +11,11 @@ void testApp::setup(){
     
     ofxSuperColliderServer::init();
     
-    //fx = new ofxSCSynth("col_fx");
-    fx = new ofxSCSynth("close_fx");
+    fx1 = new ofxSCSynth("col_fx");
+    fx2 = new ofxSCSynth("col_closefx");
     
-    fx->create();
+    fx1->create();
+    fx2->create();
     
     pitchRatio[0]= 1.0;
     pitchRatio[1]= 9.0/8.0;
@@ -154,7 +155,8 @@ void testApp::exit(){
         flicker->synth->free();
     }
     
-    fx->free();
+    fx1->free();
+    fx2->free();
 }
 
 
