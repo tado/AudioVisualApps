@@ -16,13 +16,22 @@ FFTFnwrGlitch::FFTFnwrGlitch(){
 	for (int i = 0; i < WIDTH; i++) {
 		for (int j = 0; j < HEIGHT; j++) {
 			myVerts[j * WIDTH + i].set(i,j, 0);
-            //myVerts[j * WIDTH + i].set(i, j, 0);
 			myColor[j * WIDTH + i].set(1.0, 1.0, 1.0, 1.0);
 		}
 	}
     // 頂点バッファに位置と色の情報を設定
 	myVbo.setVertexData(myVerts, NUM_PARTICLES, GL_DYNAMIC_DRAW);
 	myVbo.setColorData(myColor, NUM_PARTICLES, GL_DYNAMIC_DRAW);
+    
+    /*
+    stiffness = 0.8;
+    damping = 0.9;
+    mass = 4.0;
+     */
+    
+    stiffness = 2.0;
+    damping = 0.93;
+    mass = 14.0;
 }
 
 void FFTFnwrGlitch::update(){
@@ -40,13 +49,21 @@ void FFTFnwrGlitch::update(){
             
             // RGBから明度を算出
             float brightness = (r + g + b) / 3.0f;
-            float z = brightness * -100 + ((testApp*)ofGetAppPtr())->avg_power * brightness * -40;
-            if (z < zMax) {
-                zMax = z;
+            //float addZ = brightness * -100 + ((testApp*)ofGetAppPtr())->avg_power * brightness * -0.1;
+            float addZ = ((testApp*)ofGetAppPtr())->avg_power * brightness * -8.0;
+            
+            float forceZ = stiffness * -myVerts[j * WIDTH + i].z + addZ;
+            float accelerationZ = forceZ / mass;
+            vec[i] = damping * (vec[i] + accelerationZ);
+            myVerts[j * WIDTH + i].z += vec[i];
+            
+            //float z = brightness * -100 + ((testApp*)ofGetAppPtr())->avg_power * brightness * -40;
+            if (myVerts[j * WIDTH + i].z < zMax) {
+                zMax = myVerts[j * WIDTH + i].z;
             }
             
             // 明度から頂点の位置を設定
-            myVerts[j * WIDTH + i] = ofVec3f(i, j, z);
+            //myVerts[j * WIDTH + i] = ofVec3f(i, j, z);
             
             // 頂点の色はカメラのピクセルの値をそのまま使用
             myColor[j * WIDTH + i] = ofFloatColor(r, g, b, 1.0);
@@ -61,17 +78,17 @@ void FFTFnwrGlitch::update(){
 void FFTFnwrGlitch::draw(){
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
-    //ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     ofDisableLighting();
     ofPushMatrix();
     ofScale(2.5, 2.5, 2.0);
-    ofRotateX(140);
+    ofRotateX(120);
     //6ofRotateY(ofGetElapsedTimef() * 7);
     ofRotateZ(ofGetElapsedTimef() * -4);
 	// パーティクルのZ軸の位置によって大きさを変化させる
     static GLfloat distance[] = { 0.0, 0.0, 1.0 };
     glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
-    glPointSize(((testApp*)ofGetAppPtr())->avg_power * 300 + 500);
+    glPointSize(((testApp*)ofGetAppPtr())->avg_power * 20 + 1000);
     ofTranslate(-320, -240, -zMax/2.0f);
     glEnable( GL_POINT_SMOOTH );
     myVbo.draw(GL_POINTS, 0, NUM_PARTICLES);
@@ -79,5 +96,5 @@ void FFTFnwrGlitch::draw(){
     ofEnableLighting();
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
-    //ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
 }

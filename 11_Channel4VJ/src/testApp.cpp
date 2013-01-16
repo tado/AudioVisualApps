@@ -51,6 +51,7 @@ void testApp::setup(){
     fftParticle = new FFTParticle();
     fftGlitch = new FFTGlitch();
     fftFnwrGlitch = new FFTFnwrGlitch();
+    fftColor = new FFTColor();
     
     //ofSoundStreamListDevices();
     
@@ -82,7 +83,9 @@ void testApp::update() {
     if (mode == 6) {
         fftFnwrGlitch->update();
     }
-    
+    if (mode == 7) {
+        fftColor->update();
+    }
     //gui.update();
 }
 
@@ -110,6 +113,9 @@ void testApp::draw() {
     }
     if (mode == 6) {
         fftFnwrGlitch->draw();
+    }
+    if (mode == 7) {
+        fftColor->draw();
     }
     post.end();
 }
@@ -149,6 +155,9 @@ void testApp::keyPressed(int key){
     }
     if (key == '6') {
         mode = 6;
+    }
+    if (key == '7') {
+        mode = 7;
     }
     if (key == '-') {
         audioLevel /= 1.2;

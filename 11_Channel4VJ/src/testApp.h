@@ -10,6 +10,7 @@
 #include "FFTParticle.h"
 #include "FFTGlitch.h"
 #include "FFTFnwrGlitch.h"
+#include "FFTColor.h"
 
 class testApp : public ofBaseApp {
 public:
@@ -43,7 +44,8 @@ public:
     FFTParticle *fftParticle;
     FFTGlitch *fftGlitch;
     FFTFnwrGlitch *fftFnwrGlitch;
-            
+    FFTColor *fftColor;
+    
     // scene stuff
     ofxPostProcessing post;
     ofEasyCam cam;

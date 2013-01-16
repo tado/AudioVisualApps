@@ -22,7 +22,7 @@ FFTParticle::FFTParticle(){
 		billboardVerts[i].set(ofRandom(-2000,2000),ofRandom(-2000,2000),ofRandom(-2000,2000));
 		
 		// 色
-		billboardColor[i].set(1, 1, 1, 0.5);
+		billboardColor[i].set(1, 1, 1, 0.3);
 	}
 	
 	// VBOにパーティクルの色と座標を格納

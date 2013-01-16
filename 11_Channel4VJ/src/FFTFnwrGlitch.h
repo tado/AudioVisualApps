@@ -22,7 +22,9 @@ public:
     ofVbo myVbo;
     ofVec3f myVerts[NUM_PARTICLES];
 	ofFloatColor myColor[NUM_PARTICLES];
+    float vec[NUM_PARTICLES];
     unsigned char *pixels;
     int zMax;
+    float stiffness, damping, mass;
 };
 
