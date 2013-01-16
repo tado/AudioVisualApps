@@ -84,11 +84,11 @@ void FFTFnwrGlitch::draw(){
     ofScale(2.5, 2.5, 2.0);
     ofRotateX(120);
     //6ofRotateY(ofGetElapsedTimef() * 7);
-    ofRotateZ(ofGetElapsedTimef() * -4);
+    ofRotateZ(ofGetElapsedTimef() * -2);
 	// パーティクルのZ軸の位置によって大きさを変化させる
     static GLfloat distance[] = { 0.0, 0.0, 1.0 };
     glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
-    glPointSize(((testApp*)ofGetAppPtr())->avg_power * 20 + 1000);
+    glPointSize(((testApp*)ofGetAppPtr())->avg_power * 40 + 1000);
     ofTranslate(-320, -240, -zMax/2.0f);
     glEnable( GL_POINT_SMOOTH );
     myVbo.draw(GL_POINTS, 0, NUM_PARTICLES);

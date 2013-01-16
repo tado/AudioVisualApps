@@ -18,6 +18,9 @@ public:
     
     int fft_size;
     float magnitudeLow, magnitudeMid, magnitudeHigh;
+    float *magnitude;
+    float *rot, *vec;
+    float stiffness, damping, mass;
 };
 
 
