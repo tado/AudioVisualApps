@@ -33,7 +33,7 @@ void testApp::setup(){
     post.createPass<NoiseWarpPass>()->setEnabled(false);
     post.createPass<PixelatePass>()->setEnabled(false);
     post.createPass<EdgePass>()->setEnabled(false);
-    
+        
 	//GUI setup
     /*
     gui.setup("control panel test", 0, 0, 340, 400);
@@ -50,6 +50,7 @@ void testApp::setup(){
     fftBox = new FFTBox();
     fftParticle = new FFTParticle();
     fftGlitch = new FFTGlitch();
+    fftFnwrGlitch = new FFTFnwrGlitch();
     
     //ofSoundStreamListDevices();
     
@@ -78,6 +79,9 @@ void testApp::update() {
     if (mode == 5) {
         fftGlitch->update();
     }
+    if (mode == 6) {
+        fftFnwrGlitch->update();
+    }
     
     //gui.update();
 }
@@ -103,6 +107,9 @@ void testApp::draw() {
     }
     if (mode == 5) {
         fftGlitch->draw();
+    }
+    if (mode == 6) {
+        fftFnwrGlitch->draw();
     }
     post.end();
 }
@@ -139,6 +146,9 @@ void testApp::keyPressed(int key){
     }
     if (key == '5') {
         mode = 5;
+    }
+    if (key == '6') {
+        mode = 6;
     }
     if (key == '-') {
         audioLevel /= 1.2;

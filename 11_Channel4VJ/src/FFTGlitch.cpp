@@ -29,6 +29,8 @@ FFTGlitch::FFTGlitch()
     tempo = 80;
     amp = 0.0;
     
+    //fnwr.loadImage("FNWR1500.png");
+    
     clipImage.allocate(width/scale, height/scale, OF_IMAGE_COLOR);
     clipImage.grabScreen(pos.x + width/2 - width/scale/2, pos.y + height/2 - height/scale/2, width/scale, height/scale);
 }
@@ -65,6 +67,12 @@ void FFTGlitch::update()
 
 void FFTGlitch::draw()
 {
+    /*
+    ofSetHexColor(0xffffff);
+    ofRotateX(180);
+    fnwr.draw(-fnwr.width/2, -fnwr.height/2, 200);
+     */
+    
     int gray = int(ofMap(amp, 0.0, 0.3, 0, 255));
     //ofSetColor(gray);
     int br = ((testApp*)ofGetAppPtr())->avg_power * 63;

@@ -135,7 +135,7 @@ SynthDef("col_closesaw", {
         8,
         ClipNoise.ar,
         LFSaw.kr(MouseX.kr(0.2, 8, 'exponential')),
-        0.5,
+        0.1,
         3
     );
 }.play;

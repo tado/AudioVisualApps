@@ -41,6 +41,7 @@
 		1801EAB3169CD441003C9A1F /* FFTRotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EAB1169CD441003C9A1F /* FFTRotate.cpp */; };
 		187AC7AC14B3D42B009C72C9 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 187AC7AA14B3D42B009C72C9 /* fft.cpp */; };
 		187E085C16A3277600B3301C /* FFTGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 187E085A16A3277600B3301C /* FFTGlitch.cpp */; };
+		18B5620216A3516800751197 /* FFTFnwrGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18B5620016A3516800751197 /* FFTFnwrGlitch.cpp */; };
 		18D659021698002B00A96C16 /* FFTCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18D659001698002B00A96C16 /* FFTCircle.cpp */; };
 		18EF939816A0100700C5A88C /* BloomPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18EF937A16A0100700C5A88C /* BloomPass.cpp */; };
 		18EF939916A0100700C5A88C /* ConvolutionPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18EF937C16A0100700C5A88C /* ConvolutionPass.cpp */; };
@@ -179,6 +180,8 @@
 		187AC7AB14B3D42B009C72C9 /* fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
 		187E085A16A3277600B3301C /* FFTGlitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTGlitch.cpp; sourceTree = "<group>"; };
 		187E085B16A3277600B3301C /* FFTGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTGlitch.h; sourceTree = "<group>"; };
+		18B5620016A3516800751197 /* FFTFnwrGlitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTFnwrGlitch.cpp; sourceTree = "<group>"; };
+		18B5620116A3516800751197 /* FFTFnwrGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTFnwrGlitch.h; sourceTree = "<group>"; };
 		18D659001698002B00A96C16 /* FFTCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTCircle.cpp; sourceTree = "<group>"; };
 		18D659011698002B00A96C16 /* FFTCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTCircle.h; sourceTree = "<group>"; };
 		18EF937A16A0100700C5A88C /* BloomPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BloomPass.cpp; sourceTree = "<group>"; };
@@ -487,6 +490,8 @@
 				18EF93CA16A1775700C5A88C /* FFTParticle.cpp */,
 				187E085B16A3277600B3301C /* FFTGlitch.h */,
 				187E085A16A3277600B3301C /* FFTGlitch.cpp */,
+				18B5620116A3516800751197 /* FFTFnwrGlitch.h */,
+				18B5620016A3516800751197 /* FFTFnwrGlitch.cpp */,
 				18EF93BA16A158F700C5A88C /* Fnwr.h */,
 				18EF93B916A158F700C5A88C /* Fnwr.cpp */,
 				187AC7AB14B3D42B009C72C9 /* fft.h */,
@@ -639,6 +644,7 @@
 				18EF93BB16A158F800C5A88C /* Fnwr.cpp in Sources */,
 				18EF93CC16A1775800C5A88C /* FFTParticle.cpp in Sources */,
 				187E085C16A3277600B3301C /* FFTGlitch.cpp in Sources */,
+				18B5620216A3516800751197 /* FFTFnwrGlitch.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

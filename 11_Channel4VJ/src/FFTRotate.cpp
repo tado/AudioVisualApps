@@ -29,15 +29,14 @@ void FFTRotate::draw(){
         
         float xx, yy;
         
-        ofSetColor((255-255*i/fft_size)/2,100*i/fft_size,255*i/fft_size);
-        xx = cos(i/PI+circle_phase[i]/2.0) * i * circleSize;
-		yy = sin(i/PI+circle_phase[i]/2.0) * i * circleSize;
-		ofCircle(xx, yy, circle_phase[i]*8.0);
-        
-        ofSetColor((255-255*i/fft_size)/2,100*i/fft_size,255*i/fft_size);
-        xx = cos(-i/PI+circle_phase[i]/2.0) * i * circleSize;
-		yy = sin(-i/PI+circle_phase[i]/2.0) * i * circleSize;
-		ofCircle(xx, yy, circle_phase[i]*8.0);
+        for (int j = 0; j < 6; j++) {
+            ofSetColor((255-255*i/fft_size)/2,100*i/fft_size,255*i/fft_size);
+            xx = cos(i/PI+circle_phase[i]/2.0) * i * circleSize;
+            yy = sin(i/PI+circle_phase[i]/2.0) * i * circleSize;
+            ofCircle(xx, yy, circle_phase[i]*6.0);
+            ofRotateZ(180/6);
+        }
+
     }
     //ofPopMatrix();
 }

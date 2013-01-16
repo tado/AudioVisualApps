@@ -9,6 +9,7 @@
 #include "FFTBox.h"
 #include "FFTParticle.h"
 #include "FFTGlitch.h"
+#include "FFTFnwrGlitch.h"
 
 class testApp : public ofBaseApp {
 public:
@@ -41,6 +42,7 @@ public:
     FFTBox *fftBox;
     FFTParticle *fftParticle;
     FFTGlitch *fftGlitch;
+    FFTFnwrGlitch *fftFnwrGlitch;
             
     // scene stuff
     ofxPostProcessing post;

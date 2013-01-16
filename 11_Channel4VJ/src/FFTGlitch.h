@@ -29,4 +29,5 @@ public:
     int tempo;
     float amp;
     int fft_size;
+    ofImage fnwr;
 };
