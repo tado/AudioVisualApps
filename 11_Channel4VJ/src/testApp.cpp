@@ -53,6 +53,7 @@ void testApp::setup(){
     fftFnwrGlitch = new FFTFnwrGlitch();
     fftColor = new FFTColor();
     fftGrid = new FFTGrid();
+    fftFnwrNoise = new FFTFnwrNoise();
     
     //ofSoundStreamListDevices();
     
@@ -90,6 +91,9 @@ void testApp::update() {
     if (mode == 8) {
         fftGrid->update();
     }
+    if (mode == 9) {
+        fftFnwrNoise->update();
+    }
     //gui.update();
 }
 
@@ -123,6 +127,9 @@ void testApp::draw() {
     }
     if (mode == 8) {
         fftGrid->draw();
+    }
+    if (mode == 9) {
+        fftFnwrNoise->draw();
     }
     post.end();
 }
@@ -168,6 +175,9 @@ void testApp::keyPressed(int key){
     }
     if (key == '8') {
         mode = 8;
+    }
+    if (key == '9') {
+        mode = 9;
     }
     if (key == '-') {
         audioLevel /= 1.2;
