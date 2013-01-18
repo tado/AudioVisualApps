@@ -11,6 +11,7 @@
 #include "FFTGlitch.h"
 #include "FFTFnwrGlitch.h"
 #include "FFTColor.h"
+#include "FFTGrid.h"
 
 class testApp : public ofBaseApp {
 public:
@@ -45,6 +46,7 @@ public:
     FFTGlitch *fftGlitch;
     FFTFnwrGlitch *fftFnwrGlitch;
     FFTColor *fftColor;
+    FFTGrid *fftGrid;
     
     // scene stuff
     ofxPostProcessing post;

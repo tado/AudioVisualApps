@@ -7,41 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1801EA7A169CC976003C9A1F /* guiBaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA3F169CC976003C9A1F /* guiBaseObject.cpp */; };
-		1801EA7B169CC976003C9A1F /* guiCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA41169CC976003C9A1F /* guiCallback.cpp */; };
-		1801EA7C169CC976003C9A1F /* guiCallbackValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA43169CC976003C9A1F /* guiCallbackValue.cpp */; };
-		1801EA7D169CC976003C9A1F /* guiColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA45169CC976003C9A1F /* guiColor.cpp */; };
-		1801EA7E169CC976003C9A1F /* guiTextBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA49169CC976003C9A1F /* guiTextBase.cpp */; };
-		1801EA7F169CC976003C9A1F /* guiType2DSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA4B169CC976003C9A1F /* guiType2DSlider.cpp */; };
-		1801EA80169CC976003C9A1F /* guiTypeButtonSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA4D169CC976003C9A1F /* guiTypeButtonSlider.cpp */; };
-		1801EA81169CC976003C9A1F /* guiTypeChartPlotter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA4F169CC976003C9A1F /* guiTypeChartPlotter.cpp */; };
-		1801EA82169CC976003C9A1F /* guiTypeCustom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA51169CC976003C9A1F /* guiTypeCustom.cpp */; };
-		1801EA83169CC976003C9A1F /* guiTypeDrawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA53169CC976003C9A1F /* guiTypeDrawable.cpp */; };
-		1801EA84169CC976003C9A1F /* guiTypeFileLister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA55169CC976003C9A1F /* guiTypeFileLister.cpp */; };
-		1801EA85169CC976003C9A1F /* guiTypeLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA57169CC976003C9A1F /* guiTypeLabel.cpp */; };
-		1801EA86169CC976003C9A1F /* guiTypeLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA59169CC976003C9A1F /* guiTypeLogger.cpp */; };
-		1801EA87169CC976003C9A1F /* guiTypeMultiToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA5B169CC976003C9A1F /* guiTypeMultiToggle.cpp */; };
-		1801EA88169CC976003C9A1F /* guiTypePanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA5D169CC976003C9A1F /* guiTypePanel.cpp */; };
-		1801EA89169CC976003C9A1F /* guiTypeSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA5F169CC976003C9A1F /* guiTypeSlider.cpp */; };
-		1801EA8A169CC976003C9A1F /* guiTypeText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA61169CC976003C9A1F /* guiTypeText.cpp */; };
-		1801EA8B169CC976003C9A1F /* guiTypeTextDropDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA63169CC976003C9A1F /* guiTypeTextDropDown.cpp */; };
-		1801EA8C169CC976003C9A1F /* guiTypeTextInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA65169CC976003C9A1F /* guiTypeTextInput.cpp */; };
-		1801EA8D169CC976003C9A1F /* guiTypeToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA67169CC976003C9A1F /* guiTypeToggle.cpp */; };
-		1801EA8E169CC976003C9A1F /* guiTypeVairableLister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA69169CC976003C9A1F /* guiTypeVairableLister.cpp */; };
-		1801EA8F169CC976003C9A1F /* guiTypeVideo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA6B169CC976003C9A1F /* guiTypeVideo.cpp */; };
-		1801EA90169CC976003C9A1F /* guiValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA6D169CC976003C9A1F /* guiValue.cpp */; };
-		1801EA91169CC976003C9A1F /* ofxControlPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA72169CC976003C9A1F /* ofxControlPanel.cpp */; };
-		1801EA92169CC976003C9A1F /* simpleColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA74169CC976003C9A1F /* simpleColor.cpp */; };
-		1801EA93169CC976003C9A1F /* simpleFileLister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA76169CC976003C9A1F /* simpleFileLister.cpp */; };
-		1801EA94169CC976003C9A1F /* simpleLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA78169CC976003C9A1F /* simpleLogger.cpp */; };
-		1801EA9E169CC983003C9A1F /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA97169CC983003C9A1F /* tinyxml.cpp */; };
-		1801EA9F169CC983003C9A1F /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA99169CC983003C9A1F /* tinyxmlerror.cpp */; };
-		1801EAA0169CC983003C9A1F /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA9A169CC983003C9A1F /* tinyxmlparser.cpp */; };
-		1801EAA1169CC983003C9A1F /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EA9C169CC983003C9A1F /* ofxXmlSettings.cpp */; };
 		1801EAB3169CD441003C9A1F /* FFTRotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EAB1169CD441003C9A1F /* FFTRotate.cpp */; };
 		187AC7AC14B3D42B009C72C9 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 187AC7AA14B3D42B009C72C9 /* fft.cpp */; };
 		187E085C16A3277600B3301C /* FFTGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 187E085A16A3277600B3301C /* FFTGlitch.cpp */; };
 		18B5620216A3516800751197 /* FFTFnwrGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18B5620016A3516800751197 /* FFTFnwrGlitch.cpp */; };
+		18C2884816A868F90003DDD4 /* FFTGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18C2884616A868F90003DDD4 /* FFTGrid.cpp */; };
 		18D659021698002B00A96C16 /* FFTCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18D659001698002B00A96C16 /* FFTCircle.cpp */; };
 		18DAF1B216A667A1006125CA /* FFTColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18DAF1B016A667A1006125CA /* FFTColor.cpp */; };
 		18EF939816A0100700C5A88C /* BloomPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18EF937A16A0100700C5A88C /* BloomPass.cpp */; };
@@ -108,73 +78,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1801EA3C169CC976003C9A1F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		1801EA3D169CC976003C9A1F /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
-		1801EA3F169CC976003C9A1F /* guiBaseObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiBaseObject.cpp; sourceTree = "<group>"; };
-		1801EA40169CC976003C9A1F /* guiBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiBaseObject.h; sourceTree = "<group>"; };
-		1801EA41169CC976003C9A1F /* guiCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiCallback.cpp; sourceTree = "<group>"; };
-		1801EA42169CC976003C9A1F /* guiCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiCallback.h; sourceTree = "<group>"; };
-		1801EA43169CC976003C9A1F /* guiCallbackValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiCallbackValue.cpp; sourceTree = "<group>"; };
-		1801EA44169CC976003C9A1F /* guiCallbackValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiCallbackValue.h; sourceTree = "<group>"; };
-		1801EA45169CC976003C9A1F /* guiColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiColor.cpp; sourceTree = "<group>"; };
-		1801EA46169CC976003C9A1F /* guiColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiColor.h; sourceTree = "<group>"; };
-		1801EA47169CC976003C9A1F /* guiCustomImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiCustomImpl.h; sourceTree = "<group>"; };
-		1801EA48169CC976003C9A1F /* guiIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiIncludes.h; sourceTree = "<group>"; };
-		1801EA49169CC976003C9A1F /* guiTextBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTextBase.cpp; sourceTree = "<group>"; };
-		1801EA4A169CC976003C9A1F /* guiTextBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTextBase.h; sourceTree = "<group>"; };
-		1801EA4B169CC976003C9A1F /* guiType2DSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiType2DSlider.cpp; sourceTree = "<group>"; };
-		1801EA4C169CC976003C9A1F /* guiType2DSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiType2DSlider.h; sourceTree = "<group>"; };
-		1801EA4D169CC976003C9A1F /* guiTypeButtonSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeButtonSlider.cpp; sourceTree = "<group>"; };
-		1801EA4E169CC976003C9A1F /* guiTypeButtonSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeButtonSlider.h; sourceTree = "<group>"; };
-		1801EA4F169CC976003C9A1F /* guiTypeChartPlotter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeChartPlotter.cpp; sourceTree = "<group>"; };
-		1801EA50169CC976003C9A1F /* guiTypeChartPlotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeChartPlotter.h; sourceTree = "<group>"; };
-		1801EA51169CC976003C9A1F /* guiTypeCustom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeCustom.cpp; sourceTree = "<group>"; };
-		1801EA52169CC976003C9A1F /* guiTypeCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeCustom.h; sourceTree = "<group>"; };
-		1801EA53169CC976003C9A1F /* guiTypeDrawable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeDrawable.cpp; sourceTree = "<group>"; };
-		1801EA54169CC976003C9A1F /* guiTypeDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeDrawable.h; sourceTree = "<group>"; };
-		1801EA55169CC976003C9A1F /* guiTypeFileLister.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeFileLister.cpp; sourceTree = "<group>"; };
-		1801EA56169CC976003C9A1F /* guiTypeFileLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeFileLister.h; sourceTree = "<group>"; };
-		1801EA57169CC976003C9A1F /* guiTypeLabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeLabel.cpp; sourceTree = "<group>"; };
-		1801EA58169CC976003C9A1F /* guiTypeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeLabel.h; sourceTree = "<group>"; };
-		1801EA59169CC976003C9A1F /* guiTypeLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeLogger.cpp; sourceTree = "<group>"; };
-		1801EA5A169CC976003C9A1F /* guiTypeLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeLogger.h; sourceTree = "<group>"; };
-		1801EA5B169CC976003C9A1F /* guiTypeMultiToggle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeMultiToggle.cpp; sourceTree = "<group>"; };
-		1801EA5C169CC976003C9A1F /* guiTypeMultiToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeMultiToggle.h; sourceTree = "<group>"; };
-		1801EA5D169CC976003C9A1F /* guiTypePanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypePanel.cpp; sourceTree = "<group>"; };
-		1801EA5E169CC976003C9A1F /* guiTypePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypePanel.h; sourceTree = "<group>"; };
-		1801EA5F169CC976003C9A1F /* guiTypeSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeSlider.cpp; sourceTree = "<group>"; };
-		1801EA60169CC976003C9A1F /* guiTypeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeSlider.h; sourceTree = "<group>"; };
-		1801EA61169CC976003C9A1F /* guiTypeText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeText.cpp; sourceTree = "<group>"; };
-		1801EA62169CC976003C9A1F /* guiTypeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeText.h; sourceTree = "<group>"; };
-		1801EA63169CC976003C9A1F /* guiTypeTextDropDown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeTextDropDown.cpp; sourceTree = "<group>"; };
-		1801EA64169CC976003C9A1F /* guiTypeTextDropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeTextDropDown.h; sourceTree = "<group>"; };
-		1801EA65169CC976003C9A1F /* guiTypeTextInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeTextInput.cpp; sourceTree = "<group>"; };
-		1801EA66169CC976003C9A1F /* guiTypeTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeTextInput.h; sourceTree = "<group>"; };
-		1801EA67169CC976003C9A1F /* guiTypeToggle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeToggle.cpp; sourceTree = "<group>"; };
-		1801EA68169CC976003C9A1F /* guiTypeToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeToggle.h; sourceTree = "<group>"; };
-		1801EA69169CC976003C9A1F /* guiTypeVairableLister.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeVairableLister.cpp; sourceTree = "<group>"; };
-		1801EA6A169CC976003C9A1F /* guiTypeVairableLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeVairableLister.h; sourceTree = "<group>"; };
-		1801EA6B169CC976003C9A1F /* guiTypeVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiTypeVideo.cpp; sourceTree = "<group>"; };
-		1801EA6C169CC976003C9A1F /* guiTypeVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiTypeVideo.h; sourceTree = "<group>"; };
-		1801EA6D169CC976003C9A1F /* guiValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiValue.cpp; sourceTree = "<group>"; };
-		1801EA6E169CC976003C9A1F /* guiValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiValue.h; sourceTree = "<group>"; };
-		1801EA6F169CC976003C9A1F /* guiVariablePointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiVariablePointer.h; sourceTree = "<group>"; };
-		1801EA70169CC976003C9A1F /* guiXmlValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiXmlValue.h; sourceTree = "<group>"; };
-		1801EA71169CC976003C9A1F /* ofxAutoControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAutoControlPanel.h; sourceTree = "<group>"; };
-		1801EA72169CC976003C9A1F /* ofxControlPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxControlPanel.cpp; sourceTree = "<group>"; };
-		1801EA73169CC976003C9A1F /* ofxControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxControlPanel.h; sourceTree = "<group>"; };
-		1801EA74169CC976003C9A1F /* simpleColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleColor.cpp; sourceTree = "<group>"; };
-		1801EA75169CC976003C9A1F /* simpleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleColor.h; sourceTree = "<group>"; };
-		1801EA76169CC976003C9A1F /* simpleFileLister.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleFileLister.cpp; sourceTree = "<group>"; };
-		1801EA77169CC976003C9A1F /* simpleFileLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleFileLister.h; sourceTree = "<group>"; };
-		1801EA78169CC976003C9A1F /* simpleLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleLogger.cpp; sourceTree = "<group>"; };
-		1801EA79169CC976003C9A1F /* simpleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleLogger.h; sourceTree = "<group>"; };
-		1801EA97169CC983003C9A1F /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
-		1801EA98169CC983003C9A1F /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
-		1801EA99169CC983003C9A1F /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
-		1801EA9A169CC983003C9A1F /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
-		1801EA9C169CC983003C9A1F /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
-		1801EA9D169CC983003C9A1F /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		1801EAB1169CD441003C9A1F /* FFTRotate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTRotate.cpp; sourceTree = "<group>"; };
 		1801EAB2169CD441003C9A1F /* FFTRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTRotate.h; sourceTree = "<group>"; };
 		187AC7AA14B3D42B009C72C9 /* fft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fft.cpp; sourceTree = "<group>"; };
@@ -183,6 +86,8 @@
 		187E085B16A3277600B3301C /* FFTGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTGlitch.h; sourceTree = "<group>"; };
 		18B5620016A3516800751197 /* FFTFnwrGlitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTFnwrGlitch.cpp; sourceTree = "<group>"; };
 		18B5620116A3516800751197 /* FFTFnwrGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTFnwrGlitch.h; sourceTree = "<group>"; };
+		18C2884616A868F90003DDD4 /* FFTGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTGrid.cpp; sourceTree = "<group>"; };
+		18C2884716A868F90003DDD4 /* FFTGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTGrid.h; sourceTree = "<group>"; };
 		18D659001698002B00A96C16 /* FFTCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTCircle.cpp; sourceTree = "<group>"; };
 		18D659011698002B00A96C16 /* FFTCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTCircle.h; sourceTree = "<group>"; };
 		18DAF1B016A667A1006125CA /* FFTColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTColor.cpp; sourceTree = "<group>"; };
@@ -264,113 +169,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1801EA3B169CC976003C9A1F /* ofxControlPanel */ = {
-			isa = PBXGroup;
-			children = (
-				1801EA3C169CC976003C9A1F /* .gitignore */,
-				1801EA3D169CC976003C9A1F /* README.markdown */,
-				1801EA3E169CC976003C9A1F /* src */,
-			);
-			name = ofxControlPanel;
-			path = ../../../addons/ofxControlPanel;
-			sourceTree = "<group>";
-		};
-		1801EA3E169CC976003C9A1F /* src */ = {
-			isa = PBXGroup;
-			children = (
-				1801EA3F169CC976003C9A1F /* guiBaseObject.cpp */,
-				1801EA40169CC976003C9A1F /* guiBaseObject.h */,
-				1801EA41169CC976003C9A1F /* guiCallback.cpp */,
-				1801EA42169CC976003C9A1F /* guiCallback.h */,
-				1801EA43169CC976003C9A1F /* guiCallbackValue.cpp */,
-				1801EA44169CC976003C9A1F /* guiCallbackValue.h */,
-				1801EA45169CC976003C9A1F /* guiColor.cpp */,
-				1801EA46169CC976003C9A1F /* guiColor.h */,
-				1801EA47169CC976003C9A1F /* guiCustomImpl.h */,
-				1801EA48169CC976003C9A1F /* guiIncludes.h */,
-				1801EA49169CC976003C9A1F /* guiTextBase.cpp */,
-				1801EA4A169CC976003C9A1F /* guiTextBase.h */,
-				1801EA4B169CC976003C9A1F /* guiType2DSlider.cpp */,
-				1801EA4C169CC976003C9A1F /* guiType2DSlider.h */,
-				1801EA4D169CC976003C9A1F /* guiTypeButtonSlider.cpp */,
-				1801EA4E169CC976003C9A1F /* guiTypeButtonSlider.h */,
-				1801EA4F169CC976003C9A1F /* guiTypeChartPlotter.cpp */,
-				1801EA50169CC976003C9A1F /* guiTypeChartPlotter.h */,
-				1801EA51169CC976003C9A1F /* guiTypeCustom.cpp */,
-				1801EA52169CC976003C9A1F /* guiTypeCustom.h */,
-				1801EA53169CC976003C9A1F /* guiTypeDrawable.cpp */,
-				1801EA54169CC976003C9A1F /* guiTypeDrawable.h */,
-				1801EA55169CC976003C9A1F /* guiTypeFileLister.cpp */,
-				1801EA56169CC976003C9A1F /* guiTypeFileLister.h */,
-				1801EA57169CC976003C9A1F /* guiTypeLabel.cpp */,
-				1801EA58169CC976003C9A1F /* guiTypeLabel.h */,
-				1801EA59169CC976003C9A1F /* guiTypeLogger.cpp */,
-				1801EA5A169CC976003C9A1F /* guiTypeLogger.h */,
-				1801EA5B169CC976003C9A1F /* guiTypeMultiToggle.cpp */,
-				1801EA5C169CC976003C9A1F /* guiTypeMultiToggle.h */,
-				1801EA5D169CC976003C9A1F /* guiTypePanel.cpp */,
-				1801EA5E169CC976003C9A1F /* guiTypePanel.h */,
-				1801EA5F169CC976003C9A1F /* guiTypeSlider.cpp */,
-				1801EA60169CC976003C9A1F /* guiTypeSlider.h */,
-				1801EA61169CC976003C9A1F /* guiTypeText.cpp */,
-				1801EA62169CC976003C9A1F /* guiTypeText.h */,
-				1801EA63169CC976003C9A1F /* guiTypeTextDropDown.cpp */,
-				1801EA64169CC976003C9A1F /* guiTypeTextDropDown.h */,
-				1801EA65169CC976003C9A1F /* guiTypeTextInput.cpp */,
-				1801EA66169CC976003C9A1F /* guiTypeTextInput.h */,
-				1801EA67169CC976003C9A1F /* guiTypeToggle.cpp */,
-				1801EA68169CC976003C9A1F /* guiTypeToggle.h */,
-				1801EA69169CC976003C9A1F /* guiTypeVairableLister.cpp */,
-				1801EA6A169CC976003C9A1F /* guiTypeVairableLister.h */,
-				1801EA6B169CC976003C9A1F /* guiTypeVideo.cpp */,
-				1801EA6C169CC976003C9A1F /* guiTypeVideo.h */,
-				1801EA6D169CC976003C9A1F /* guiValue.cpp */,
-				1801EA6E169CC976003C9A1F /* guiValue.h */,
-				1801EA6F169CC976003C9A1F /* guiVariablePointer.h */,
-				1801EA70169CC976003C9A1F /* guiXmlValue.h */,
-				1801EA71169CC976003C9A1F /* ofxAutoControlPanel.h */,
-				1801EA72169CC976003C9A1F /* ofxControlPanel.cpp */,
-				1801EA73169CC976003C9A1F /* ofxControlPanel.h */,
-				1801EA74169CC976003C9A1F /* simpleColor.cpp */,
-				1801EA75169CC976003C9A1F /* simpleColor.h */,
-				1801EA76169CC976003C9A1F /* simpleFileLister.cpp */,
-				1801EA77169CC976003C9A1F /* simpleFileLister.h */,
-				1801EA78169CC976003C9A1F /* simpleLogger.cpp */,
-				1801EA79169CC976003C9A1F /* simpleLogger.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		1801EA95169CC983003C9A1F /* ofxXmlSettings */ = {
-			isa = PBXGroup;
-			children = (
-				1801EA96169CC983003C9A1F /* libs */,
-				1801EA9B169CC983003C9A1F /* src */,
-			);
-			name = ofxXmlSettings;
-			path = ../../../addons/ofxXmlSettings;
-			sourceTree = "<group>";
-		};
-		1801EA96169CC983003C9A1F /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				1801EA97169CC983003C9A1F /* tinyxml.cpp */,
-				1801EA98169CC983003C9A1F /* tinyxml.h */,
-				1801EA99169CC983003C9A1F /* tinyxmlerror.cpp */,
-				1801EA9A169CC983003C9A1F /* tinyxmlparser.cpp */,
-			);
-			path = libs;
-			sourceTree = "<group>";
-		};
-		1801EA9B169CC983003C9A1F /* src */ = {
-			isa = PBXGroup;
-			children = (
-				1801EA9C169CC983003C9A1F /* ofxXmlSettings.cpp */,
-				1801EA9D169CC983003C9A1F /* ofxXmlSettings.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		18EF936916A0100700C5A88C /* ofxPostProcessing */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,8 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				18EF936916A0100700C5A88C /* ofxPostProcessing */,
-				1801EA95169CC983003C9A1F /* ofxXmlSettings */,
-				1801EA3B169CC976003C9A1F /* ofxControlPanel */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -497,6 +293,8 @@
 				18B5620016A3516800751197 /* FFTFnwrGlitch.cpp */,
 				18DAF1B116A667A1006125CA /* FFTColor.h */,
 				18DAF1B016A667A1006125CA /* FFTColor.cpp */,
+				18C2884716A868F90003DDD4 /* FFTGrid.h */,
+				18C2884616A868F90003DDD4 /* FFTGrid.cpp */,
 				18EF93BA16A158F700C5A88C /* Fnwr.h */,
 				18EF93B916A158F700C5A88C /* Fnwr.cpp */,
 				187AC7AB14B3D42B009C72C9 /* fft.h */,
@@ -602,37 +400,6 @@
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
 				187AC7AC14B3D42B009C72C9 /* fft.cpp in Sources */,
 				18D659021698002B00A96C16 /* FFTCircle.cpp in Sources */,
-				1801EA7A169CC976003C9A1F /* guiBaseObject.cpp in Sources */,
-				1801EA7B169CC976003C9A1F /* guiCallback.cpp in Sources */,
-				1801EA7C169CC976003C9A1F /* guiCallbackValue.cpp in Sources */,
-				1801EA7D169CC976003C9A1F /* guiColor.cpp in Sources */,
-				1801EA7E169CC976003C9A1F /* guiTextBase.cpp in Sources */,
-				1801EA7F169CC976003C9A1F /* guiType2DSlider.cpp in Sources */,
-				1801EA80169CC976003C9A1F /* guiTypeButtonSlider.cpp in Sources */,
-				1801EA81169CC976003C9A1F /* guiTypeChartPlotter.cpp in Sources */,
-				1801EA82169CC976003C9A1F /* guiTypeCustom.cpp in Sources */,
-				1801EA83169CC976003C9A1F /* guiTypeDrawable.cpp in Sources */,
-				1801EA84169CC976003C9A1F /* guiTypeFileLister.cpp in Sources */,
-				1801EA85169CC976003C9A1F /* guiTypeLabel.cpp in Sources */,
-				1801EA86169CC976003C9A1F /* guiTypeLogger.cpp in Sources */,
-				1801EA87169CC976003C9A1F /* guiTypeMultiToggle.cpp in Sources */,
-				1801EA88169CC976003C9A1F /* guiTypePanel.cpp in Sources */,
-				1801EA89169CC976003C9A1F /* guiTypeSlider.cpp in Sources */,
-				1801EA8A169CC976003C9A1F /* guiTypeText.cpp in Sources */,
-				1801EA8B169CC976003C9A1F /* guiTypeTextDropDown.cpp in Sources */,
-				1801EA8C169CC976003C9A1F /* guiTypeTextInput.cpp in Sources */,
-				1801EA8D169CC976003C9A1F /* guiTypeToggle.cpp in Sources */,
-				1801EA8E169CC976003C9A1F /* guiTypeVairableLister.cpp in Sources */,
-				1801EA8F169CC976003C9A1F /* guiTypeVideo.cpp in Sources */,
-				1801EA90169CC976003C9A1F /* guiValue.cpp in Sources */,
-				1801EA91169CC976003C9A1F /* ofxControlPanel.cpp in Sources */,
-				1801EA92169CC976003C9A1F /* simpleColor.cpp in Sources */,
-				1801EA93169CC976003C9A1F /* simpleFileLister.cpp in Sources */,
-				1801EA94169CC976003C9A1F /* simpleLogger.cpp in Sources */,
-				1801EA9E169CC983003C9A1F /* tinyxml.cpp in Sources */,
-				1801EA9F169CC983003C9A1F /* tinyxmlerror.cpp in Sources */,
-				1801EAA0169CC983003C9A1F /* tinyxmlparser.cpp in Sources */,
-				1801EAA1169CC983003C9A1F /* ofxXmlSettings.cpp in Sources */,
 				1801EAB3169CD441003C9A1F /* FFTRotate.cpp in Sources */,
 				18EF939816A0100700C5A88C /* BloomPass.cpp in Sources */,
 				18EF939916A0100700C5A88C /* ConvolutionPass.cpp in Sources */,
@@ -651,6 +418,7 @@
 				187E085C16A3277600B3301C /* FFTGlitch.cpp in Sources */,
 				18B5620216A3516800751197 /* FFTFnwrGlitch.cpp in Sources */,
 				18DAF1B216A667A1006125CA /* FFTColor.cpp in Sources */,
+				18C2884816A868F90003DDD4 /* FFTGrid.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +457,7 @@
 					"-D__MACOSX_CORE__",
 					"-lpthread",
 				);
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -718,6 +487,7 @@
 					"-D__MACOSX_CORE__",
 					"-lpthread",
 				);
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
