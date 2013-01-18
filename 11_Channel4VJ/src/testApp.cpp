@@ -155,7 +155,7 @@ void testApp::keyPressed(int key){
     }
     if (key == '4') {
         mode = 4;
-        fftParticle->reset();
+        //fftParticle->reset();
     }
     if (key == '5') {
         mode = 5;

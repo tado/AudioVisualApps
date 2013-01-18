@@ -18,9 +18,14 @@ FFTColor::FFTColor(){
     rot = new float[fft_size];
     vec = new float[fft_size];
 
+    /*
     stiffness = 0.8;
     damping = 0.9;
     mass = 4.0;
+     */
+    stiffness = 0.01;
+    damping = 0.8;
+    mass = 10.0;
 
     for (int i = 0; i < fft_size; i++) {
         rot[i] = 0;

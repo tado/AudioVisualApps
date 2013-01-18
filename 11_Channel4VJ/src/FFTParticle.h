@@ -27,6 +27,8 @@ public:
 	ofVec3f billboardVerts[NUM_BILLBOARDS]; // 頂点座標情報
 	ofFloatColor billboardColor[NUM_BILLBOARDS]; //頂点色情報
 	ofVec3f billboardVels[NUM_BILLBOARDS]; // パーティクルの移動速度
+    float *magnitude;
+    float stiffness, damping, mass;
 };
 
 
