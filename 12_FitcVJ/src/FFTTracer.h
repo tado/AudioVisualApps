@@ -15,6 +15,9 @@ public:
     FFTTracer();
     void update();
     void draw();
+    void keyPressed(int key);
+    void resetCam();
+    ofVec3f interpolateByPct(float _pct, float _shaper);
     
     // ばねのパラメータ
     float stiffness, damping, mass;
@@ -23,6 +26,8 @@ public:
     deque<ofVec3f> pos;
     deque<ofVec3f> vel;
     int fft_size;
+    ofVec3f camStart, camEnd, camCurrent;
+    float camPct;
 };
 
 

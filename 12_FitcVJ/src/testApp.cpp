@@ -1,7 +1,7 @@
 #include "testApp.h"
 
 void testApp::setup(){
-	//画面基本設定
+    //画面基本設定
     ofBackground(0);
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
@@ -10,17 +10,17 @@ void testApp::setup(){
     ofHideCursor();
     
     //FFTのサイズとバッファサイズを設定
-	fft_size = 1024;
-	buffer_size = fft_size * 2;
+    fft_size = 1024;
+    buffer_size = fft_size * 2;
     
-	//FFTサイズにあわせて出力結果の配列を左右2ch分準備
-	audio_input = new float[buffer_size];
-	magnitude = new float[fft_size];
-	phase = new float[fft_size];
-	power = new float[fft_size];
+    //FFTサイズにあわせて出力結果の配列を左右2ch分準備
+    audio_input = new float[buffer_size];
+    magnitude = new float[fft_size];
+    phase = new float[fft_size];
+    power = new float[fft_size];
     
     // Setup light
-	light.setPosition(1000, 1000, 2000);
+    light.setPosition(1000, 1000, 2000);
     cam.setDistance(500);
     cam.disableMouseInput();
     
@@ -33,14 +33,14 @@ void testApp::setup(){
     post.createPass<NoiseWarpPass>()->setEnabled(false);
     post.createPass<PixelatePass>()->setEnabled(false);
     post.createPass<EdgePass>()->setEnabled(false);
-        
-	//GUI setup
+    
+    //GUI setup
     /*
-    gui.setup("control panel test", 0, 0, 340, 400);
-    gui.addPanel("panel 1", 1);
-    gui.addSlider("Audio Level", "audio_level", 1.0, 0.0, 10.0, false);
-    gui.loadSettings("controlPanel.xml");
-    gui.hide();
+     gui.setup("control panel test", 0, 0, 340, 400);
+     gui.addPanel("panel 1", 1);
+     gui.addSlider("Audio Level", "audio_level", 1.0, 0.0, 10.0, false);
+     gui.loadSettings("controlPanel.xml");
+     gui.hide();
      */
     
     mode = 0;
@@ -65,8 +65,8 @@ void testApp::setup(){
 
 void testApp::update() {
     //FFT変換
-	avg_power = 0.0f;
-	myfft.powerSpectrum(0, (int)fft_size, audio_input, buffer_size,	magnitude, phase, power, &avg_power);
+    avg_power = 0.0f;
+    myfft.powerSpectrum(0, (int)fft_size, audio_input, buffer_size,	magnitude, phase, power, &avg_power);
     if (mode == 0) {
         fnwr->update();
     }
@@ -103,7 +103,7 @@ void testApp::update() {
 void testApp::draw() {
     light.enable();
     post.begin(cam);
-
+    
     if (mode == 0) {
         fnwr->draw();
     }
@@ -138,18 +138,20 @@ void testApp::draw() {
 }
 
 void testApp::keyPressed(int key){
+    cam.setPosition(0,0,500);
+    cam.lookAt(ofVec3f(0,0,0));
     if (key == 'f') {
         ofToggleFullscreen();
     }
     /*
-    if (key == 'c') {
-        gui.toggleView();
-        if (gui.hidden) {
-            ofHideCursor();
-        } else {
-            ofShowCursor();
-        }
-    }
+     if (key == 'c') {
+     gui.toggleView();
+     if (gui.hidden) {
+     ofHideCursor();
+     } else {
+     ofShowCursor();
+     }
+     }
      */
     if (key == '0') {
         mode = 0;
@@ -165,7 +167,7 @@ void testApp::keyPressed(int key){
     }
     if (key == '4') {
         mode = 4;
-        //fftParticle->reset();
+        fftTracer->resetCam();
     }
     if (key == '5') {
         mode = 5;
@@ -208,6 +210,11 @@ void testApp::keyPressed(int key){
     }
     if (key == 'u') {
         post[6]->setEnabled(!post[6]->getEnabled());
+    }
+    if (key == ' ') {
+        if (mode == 4) {
+            fftTracer->keyPressed(key);
+        }
     }
 }
 
