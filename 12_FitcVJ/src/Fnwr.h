@@ -16,5 +16,8 @@ public:
     void update();
     void draw();
     ofImage fnwr;
+    
+    int fft_size;
+    float avg_power;
 };
 

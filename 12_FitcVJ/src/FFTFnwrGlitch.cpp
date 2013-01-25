@@ -10,7 +10,7 @@
 #include "testApp.h"
 
 FFTFnwrGlitch::FFTFnwrGlitch(){
-    fnwr.loadImage("FNWR640.jpg");
+    fnwr.loadImage("zach.jpg");
     
     // 頂点情報を初期化
 	for (int i = 0; i < WIDTH; i++) {
@@ -77,11 +77,12 @@ void FFTFnwrGlitch::update(){
 
 void FFTFnwrGlitch::draw(){
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_CULL_FACE);
+    ofDisableSmoothing();
     ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     ofDisableLighting();
     ofPushMatrix();
-    ofScale(2.5, 2.5, 2.0);
+    ofScale(2.0, 2.0, 2.0);
     ofRotateX(120);
     //6ofRotateY(ofGetElapsedTimef() * 7);
     ofRotateZ(ofGetElapsedTimef() * -2);
@@ -89,12 +90,12 @@ void FFTFnwrGlitch::draw(){
     static GLfloat distance[] = { 0.0, 0.0, 1.0 };
     glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
     glPointSize(((testApp*)ofGetAppPtr())->avg_power * 40 + 1000);
-    ofTranslate(-320, -240, -zMax/2.0f);
+    ofTranslate(-250, -250, -zMax/2.0f);
     glEnable( GL_POINT_SMOOTH );
     myVbo.draw(GL_POINTS, 0, NUM_PARTICLES);
     ofPopMatrix();
     ofEnableLighting();
     glDisable(GL_DEPTH_TEST);
-    glDisable(GL_CULL_FACE);
+    //glDisable(GL_CULL_FACE);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 }

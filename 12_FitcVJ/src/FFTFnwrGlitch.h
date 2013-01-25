@@ -11,8 +11,8 @@
 
 class FFTFnwrGlitch {
 public:
-    static const unsigned int WIDTH  = 640;
-    static const unsigned int HEIGHT  = 480;
+    static const unsigned int WIDTH  = 500;
+    static const unsigned int HEIGHT  = 500;
     static const unsigned int NUM_PARTICLES  = WIDTH * HEIGHT;
     
     FFTFnwrGlitch();

@@ -75,7 +75,7 @@ void FFTGlitch::draw()
     
     int gray = int(ofMap(amp, 0.0, 0.3, 0, 255));
     //ofSetColor(gray);
-    int br = ((testApp*)ofGetAppPtr())->avg_power * 63;
+    int br = ((testApp*)ofGetAppPtr())->avg_power * 31  ;
     ofSetColor(br, br, br);
     
     if (clipImage.width > 0) {

@@ -10,7 +10,7 @@
 #include "testApp.h"
 
 FFTFnwrNoise::FFTFnwrNoise(){
-    fnwr.loadImage("FNWR640.jpg");
+    fnwr.loadImage("flyer640.jpg");
     fft_size = ((testApp*)ofGetAppPtr())->fft_size;
     magnitude = new float[fft_size];
     pixels = fnwr.getPixels();
@@ -22,7 +22,7 @@ void FFTFnwrNoise::update(){
     }
 }
 
-void FFTFnwrNoise::draw(){
+void FFTFnwrNoise::draw(){   
     float br = 2.5;
     float pow = powf(((testApp*)ofGetAppPtr())->avg_power, 0.9) * 10.0;
     int skip = pow/8.0 + 4;

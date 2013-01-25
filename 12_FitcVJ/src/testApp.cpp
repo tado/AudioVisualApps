@@ -66,7 +66,9 @@ void testApp::update() {
     //FFT変換
 	avg_power = 0.0f;
 	myfft.powerSpectrum(0, (int)fft_size, audio_input, buffer_size,	magnitude, phase, power, &avg_power);
-
+    if (mode == 0) {
+        fnwr->update();
+    }
     if (mode == 1) {
         fftCircle->update();
     }
