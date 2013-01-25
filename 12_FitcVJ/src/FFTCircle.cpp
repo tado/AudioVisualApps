@@ -15,18 +15,30 @@ FFTCircle::FFTCircle(){
 }
 
 void FFTCircle::update(){
-
+    for (int i = 0; i < fft_size; i++) {
+        magnitude[i] = powf(((testApp*)ofGetAppPtr())->magnitude[i], 1.2);
+    }
 }
 
 void FFTCircle::draw(){
-    float w = (float)ofGetWidth()/ (float)fft_size / 2.0f * 0.5;
-	for (int i = 0; i < fft_size; i+=15) {
-        magnitude[i] = powf(((testApp*)ofGetAppPtr())->magnitude[i], 0.5);
-		
-		//塗りのアルファ値でFFT解析結果を表現
-		ofSetColor(ofColor::fromHsb(220 * i / fft_size, 255, 63));
+    ofPushMatrix();
+    ofTranslate(-ofGetWidth()/2, -ofGetHeight()/2);
+    float w = (float)ofGetWidth()/ (float)fft_size / 2.0f;
+    for (int i = 0; i < fft_size; i++) {
         
-		ofCircle(-w * i, 0, magnitude[i]*60); //左
-		ofCircle(w * i, 0, magnitude[i]*60); //右
-	}
+        ofColor col;
+        float br =  magnitude[i]*24;
+        if (br > 160) {
+            br = 160;
+        }
+        
+        col.setHsb(i * 255.0f / (float)fft_size, 127, 255,br);
+        ofSetColor(col);
+        ofRect(ofGetWidth()/2 - w * i, 0, w, ofGetHeight());
+        ofRect(ofGetWidth()/2 + w * i, 0, w, ofGetHeight());
+        
+        ofRect(0, ofGetHeight()/2-w * i, ofGetWidth(), w);
+        ofRect(0, ofGetHeight()/2+w * i, ofGetWidth(), w);
+    }
+    ofPopMatrix();
 }
