@@ -13,6 +13,7 @@
 #include "FFTColor.h"
 #include "FFTGrid.h"
 #include "FFTFnwrNoise.h"
+#include "FFTTracer.h"
 
 class testApp : public ofBaseApp {
 public:
@@ -43,12 +44,13 @@ public:
     FFTCircle *fftCircle;
     FFTRotate *fftRotate;
     FFTBox *fftBox;
-    FFTParticle *fftParticle;
+    //FFTParticle *fftParticle;
     FFTGlitch *fftGlitch;
     FFTFnwrGlitch *fftFnwrGlitch;
     FFTColor *fftColor;
     FFTGrid *fftGrid;
     FFTFnwrNoise *fftFnwrNoise;
+    FFTTracer *fftTracer;
     
     // scene stuff
     ofxPostProcessing post;

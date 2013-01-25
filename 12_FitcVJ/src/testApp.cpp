@@ -48,7 +48,8 @@ void testApp::setup(){
     fftRotate = new FFTRotate();
     fftCircle = new FFTCircle();
     fftBox = new FFTBox();
-    fftParticle = new FFTParticle();
+    //fftParticle = new FFTParticle();
+    fftTracer = new FFTTracer();
     fftGlitch = new FFTGlitch();
     fftFnwrGlitch = new FFTFnwrGlitch();
     fftColor = new FFTColor();
@@ -79,7 +80,7 @@ void testApp::update() {
         fftBox->update();
     }
     if (mode == 4) {
-        fftParticle->update();
+        fftTracer->update();
     }
     if (mode == 5) {
         fftGlitch->update();
@@ -116,7 +117,7 @@ void testApp::draw() {
         fftBox->draw();
     }
     if (mode == 4) {
-        fftParticle->draw();
+        fftTracer->draw();
     }
     if (mode == 5) {
         fftGlitch->draw();

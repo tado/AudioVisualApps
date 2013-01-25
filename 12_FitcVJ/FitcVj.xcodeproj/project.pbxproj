@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1801EAB3169CD441003C9A1F /* FFTRotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1801EAB1169CD441003C9A1F /* FFTRotate.cpp */; };
+		184900E816B2707500EDEF21 /* FFTTracer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184900E616B2707400EDEF21 /* FFTTracer.cpp */; };
 		187AC7AC14B3D42B009C72C9 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 187AC7AA14B3D42B009C72C9 /* fft.cpp */; };
 		187E085C16A3277600B3301C /* FFTGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 187E085A16A3277600B3301C /* FFTGlitch.cpp */; };
 		18B5620216A3516800751197 /* FFTFnwrGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18B5620016A3516800751197 /* FFTFnwrGlitch.cpp */; };
@@ -81,6 +82,8 @@
 /* Begin PBXFileReference section */
 		1801EAB1169CD441003C9A1F /* FFTRotate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTRotate.cpp; sourceTree = "<group>"; };
 		1801EAB2169CD441003C9A1F /* FFTRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTRotate.h; sourceTree = "<group>"; };
+		184900E616B2707400EDEF21 /* FFTTracer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTTracer.cpp; sourceTree = "<group>"; };
+		184900E716B2707400EDEF21 /* FFTTracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTTracer.h; sourceTree = "<group>"; };
 		187AC7AA14B3D42B009C72C9 /* fft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fft.cpp; sourceTree = "<group>"; };
 		187AC7AB14B3D42B009C72C9 /* fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
 		187E085A16A3277600B3301C /* FFTGlitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTGlitch.cpp; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				18C2884616A868F90003DDD4 /* FFTGrid.cpp */,
 				18B8227116A96B040070B225 /* FFTFnwrNoise.h */,
 				18B8227016A96B040070B225 /* FFTFnwrNoise.cpp */,
+				184900E716B2707400EDEF21 /* FFTTracer.h */,
+				184900E616B2707400EDEF21 /* FFTTracer.cpp */,
 				18EF93BA16A158F700C5A88C /* Fnwr.h */,
 				18EF93B916A158F700C5A88C /* Fnwr.cpp */,
 				187AC7AB14B3D42B009C72C9 /* fft.h */,
@@ -425,6 +430,7 @@
 				18DAF1B216A667A1006125CA /* FFTColor.cpp in Sources */,
 				18C2884816A868F90003DDD4 /* FFTGrid.cpp in Sources */,
 				18B8227216A96B040070B225 /* FFTFnwrNoise.cpp in Sources */,
+				184900E816B2707500EDEF21 /* FFTTracer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
