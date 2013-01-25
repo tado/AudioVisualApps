@@ -13,25 +13,28 @@ FFTFnwrGlitch::FFTFnwrGlitch(){
     fnwr.loadImage("zach.jpg");
     
     // 頂点情報を初期化
-	for (int i = 0; i < WIDTH; i++) {
-		for (int j = 0; j < HEIGHT; j++) {
-			myVerts[j * WIDTH + i].set(i,j, 0);
-			myColor[j * WIDTH + i].set(1.0, 1.0, 1.0, 1.0);
-		}
-	}
+    for (int i = 0; i < WIDTH; i++) {
+        for (int j = 0; j < HEIGHT; j++) {
+            myVerts[j * WIDTH + i].set(i,j, 0);
+            myColor[j * WIDTH + i].set(1.0, 1.0, 1.0, 1.0);
+        }
+    }
     // 頂点バッファに位置と色の情報を設定
-	myVbo.setVertexData(myVerts, NUM_PARTICLES, GL_DYNAMIC_DRAW);
-	myVbo.setColorData(myColor, NUM_PARTICLES, GL_DYNAMIC_DRAW);
+    myVbo.setVertexData(myVerts, NUM_PARTICLES, GL_DYNAMIC_DRAW);
+    myVbo.setColorData(myColor, NUM_PARTICLES, GL_DYNAMIC_DRAW);
     
     /*
-    stiffness = 0.8;
-    damping = 0.9;
-    mass = 4.0;
+     stiffness = 0.8;
+     damping = 0.9;
+     mass = 4.0;
      */
     
     stiffness = 2.0;
     damping = 0.93;
     mass = 14.0;
+    
+    camStart = ((testApp*)ofGetAppPtr())->cam.getPosition();
+    camEnd = camStart;
 }
 
 void FFTFnwrGlitch::update(){
@@ -73,6 +76,14 @@ void FFTFnwrGlitch::update(){
     // VBOの座標と色の情報を更新
     myVbo.updateVertexData(myVerts, NUM_PARTICLES);
     myVbo.updateColorData(myColor, NUM_PARTICLES);
+    
+    camPct += 0.05;
+    if (camPct > 1.0) {
+        camPct = 1.0;
+    }
+    camCurrent = interpolateByPct(camPct, 0.7);
+    ((testApp*)ofGetAppPtr())->cam.setPosition(camCurrent);
+    ((testApp*)ofGetAppPtr())->cam.lookAt(ofVec3f(0,0,0));
 }
 
 void FFTFnwrGlitch::draw(){
@@ -82,11 +93,11 @@ void FFTFnwrGlitch::draw(){
     ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     ofDisableLighting();
     ofPushMatrix();
-    ofScale(2.0, 2.0, 2.0);
-    ofRotateX(120);
+    ofScale(2.0, -2.0, 2.0);
+    //ofRotateX(180);
     //6ofRotateY(ofGetElapsedTimef() * 7);
-    ofRotateZ(ofGetElapsedTimef() * -2);
-	// パーティクルのZ軸の位置によって大きさを変化させる
+    //ofRotateZ(ofGetElapsedTimef() * -2);
+    // パーティクルのZ軸の位置によって大きさを変化させる
     static GLfloat distance[] = { 0.0, 0.0, 1.0 };
     glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
     glPointSize(((testApp*)ofGetAppPtr())->avg_power * 40 + 1000);
@@ -98,4 +109,23 @@ void FFTFnwrGlitch::draw(){
     glDisable(GL_DEPTH_TEST);
     //glDisable(GL_CULL_FACE);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+}
+
+void FFTFnwrGlitch::keyPressed(int key){
+    camPct = 0.0;
+    camStart = camCurrent;
+    camEnd = ofVec3f(ofRandom(-500,500), ofRandom(-500,500), ofRandom(0,500));
+}
+
+void FFTFnwrGlitch::resetCam(){
+    ((testApp*)ofGetAppPtr())->cam.setPosition(0,0,500);
+    ((testApp*)ofGetAppPtr())->cam.lookAt(ofVec3f(0,0,0));
+    camCurrent =  camEnd = camStart = ((testApp*)ofGetAppPtr())->cam.getPosition();
+}
+
+ofVec3f FFTFnwrGlitch::interpolateByPct(float _pct, float _shaper){
+    ofVec3f pos;
+    float shapedPct = powf(_pct, _shaper);
+    pos = (1.0 - shapedPct) * camStart + shapedPct * camEnd;
+    return pos;
 }

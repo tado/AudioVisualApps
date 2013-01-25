@@ -174,6 +174,7 @@ void testApp::keyPressed(int key){
     }
     if (key == '6') {
         mode = 6;
+        fftFnwrGlitch->resetCam();
     }
     if (key == '7') {
         mode = 7;
@@ -214,6 +215,9 @@ void testApp::keyPressed(int key){
     if (key == ' ') {
         if (mode == 4) {
             fftTracer->keyPressed(key);
+        }
+        if (mode == 6) {
+            fftFnwrGlitch->keyPressed(key);
         }
     }
 }

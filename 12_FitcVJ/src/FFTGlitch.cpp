@@ -17,12 +17,12 @@ FFTGlitch::FFTGlitch()
     
     //	quality = OF_IMAGE_QUALITY_BEST;
     //  quality = OF_IMAGE_QUALITY_HIGH;
-	//  quality = OF_IMAGE_QUALITY_MEDIUM;
+    //  quality = OF_IMAGE_QUALITY_MEDIUM;
     //	quality = OF_IMAGE_QUALITY_LOW;
     quality = OF_IMAGE_QUALITY_WORST;
     
     //Jpeg圧縮したデータの保存ファイル名
-	compressedFilename = "glitch.jpg";
+    compressedFilename = "glitch.jpg";
     glitchStart = 0.2;
     scale = 3.0;
     coin = 20.0;
@@ -68,9 +68,9 @@ void FFTGlitch::update()
 void FFTGlitch::draw()
 {
     /*
-    ofSetHexColor(0xffffff);
-    ofRotateX(180);
-    fnwr.draw(-fnwr.width/2, -fnwr.height/2, 200);
+     ofSetHexColor(0xffffff);
+     ofRotateX(180);
+     fnwr.draw(-fnwr.width/2, -fnwr.height/2, 200);
      */
     
     int gray = int(ofMap(amp, 0.0, 0.3, 0, 255));

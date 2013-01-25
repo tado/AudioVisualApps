@@ -18,6 +18,10 @@ public:
     FFTFnwrGlitch();
     void update();
     void draw();
+    void keyPressed(int key);
+    void resetCam();
+    ofVec3f interpolateByPct(float _pct, float _shaper);
+    
     ofImage fnwr;
     ofVbo myVbo;
     ofVec3f myVerts[NUM_PARTICLES];
@@ -26,5 +30,7 @@ public:
     unsigned char *pixels;
     int zMax;
     float stiffness, damping, mass;
+    ofVec3f camStart, camEnd, camCurrent;
+    float camPct;
 };
 

@@ -22,7 +22,7 @@ void FFTFnwrNoise::update(){
     }
 }
 
-void FFTFnwrNoise::draw(){   
+void FFTFnwrNoise::draw(){
     float br = 2.5;
     float pow = powf(((testApp*)ofGetAppPtr())->avg_power, 0.9) * 10.0;
     int skip = pow/4.0 + 2;
@@ -30,7 +30,7 @@ void FFTFnwrNoise::draw(){
     //ofScale(pow/100+1.2,pow/100+1.2);
     ofScale(1.2,1.2);
     ofTranslate(-fnwr.width/2, -fnwr.height/2);
-
+    
     //ofSetRectMode(OF_RECTMODE_CENTER);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     //ofEnableBlendMode(OF_BLENDMODE_ALPHA);
