@@ -73,7 +73,7 @@ FFTTracer::FFTTracer(){
         
         Tracker *t = new Tracker;
         t->setup();
-        t->setTrackerLength(16);
+        t->setTrackerLength(10);
         trackers.push_back(t);
     }
     
@@ -84,8 +84,8 @@ FFTTracer::FFTTracer(){
     mass = 100.0;
     */
      stiffness = 4.0;
-     damping = 0.95;
-     mass = 500.0;
+     damping = 0.92;
+     mass = 100;
 }
 
 void FFTTracer::update(){
@@ -109,14 +109,18 @@ void FFTTracer::draw(){
     //ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     ofDisableLighting();
     ofPushMatrix();
-    ofScale(2.0, 2.0, 2.0);
+    ofScale(1.0, 1.0, 1.0);
     ofRotateX(ofGetElapsedTimef() * 4);
     ofRotateY(ofGetElapsedTimef() * 3);
     ofRotateZ(ofGetElapsedTimef() * 2);
     for (int i=0; i<fft_size; i++) {
         if(magnitude[i] > 1){
-            ofSetColor(ofColor::fromHsb(255 * i / fft_size, 127, 100));
-            ofSetLineWidth(((testApp*)ofGetAppPtr())->power[i]*8.0);
+            ofSetColor(ofColor::fromHsb(255 * i / fft_size, 200, 100));
+            float w = powf(((testApp*)ofGetAppPtr())->power[i],4.0);
+            if (w > 10) {
+                w = 10;
+            }
+            ofSetLineWidth(w);
             trackers[i]->draw();
         }
     }

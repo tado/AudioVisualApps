@@ -79,8 +79,8 @@ void FFTColor::draw(){
             if (add > 0) {
                 ofNoFill();
                 ofEnableSmoothing();
-                ofSetLineWidth(3);
-                ofSetColor(255, 255, 255);
+                ofSetLineWidth(2);
+                ofSetColor(127, 127, 127);
                 ofBox(0, 0, 0, 30 + add * 0.8);
                 ofFill();
                 ofSetLineWidth(1);

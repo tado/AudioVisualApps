@@ -10,7 +10,7 @@
 #include "testApp.h"
 
 FFTFnwrNoise::FFTFnwrNoise(){
-    fnwr.loadImage("flyer640.jpg");
+    fnwr.loadImage("FITC_logo.jpg");
     fft_size = ((testApp*)ofGetAppPtr())->fft_size;
     magnitude = new float[fft_size];
     pixels = fnwr.getPixels();
@@ -25,7 +25,7 @@ void FFTFnwrNoise::update(){
 void FFTFnwrNoise::draw(){   
     float br = 2.5;
     float pow = powf(((testApp*)ofGetAppPtr())->avg_power, 0.9) * 10.0;
-    int skip = pow/8.0 + 4;
+    int skip = pow/4.0 + 2;
     ofRotateX(180);
     //ofScale(pow/100+1.2,pow/100+1.2);
     ofScale(1.2,1.2);
@@ -51,7 +51,7 @@ void FFTFnwrNoise::draw(){
     //ofSetRectMode(OF_RECTMODE_CORNER);
     ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     ofDisableLighting();
-    ofSetColor(135,135,135,255-pow*3);
+    ofSetColor(120,120,120,255-pow*3);
     fnwr.draw(0, 0);
     ofEnableLighting();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
