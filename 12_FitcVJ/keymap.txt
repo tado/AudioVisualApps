@@ -1,0 +1,18 @@
+1: Cross
+2: Rotate
+3: Box
+4: Tracer
+5: Glitch
+6: VBO
+7: Box Grid
+8: Wave Grid
+9: Logo noise
+0: Logo
+
+q: Fxaa
+w: Bloom
+e: Dof
+r: Kaleidoscope
+t: NoiseWarp
+y: Pixelate
+u: Edge

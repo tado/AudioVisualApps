@@ -10,7 +10,7 @@
 #include "testApp.h"
 
 FFTFnwrGlitch::FFTFnwrGlitch(){
-    fnwr.loadImage("zach.jpg");
+    fnwr.loadImage("noiz1.png");
     
     // 頂点情報を初期化
     for (int i = 0; i < WIDTH; i++) {
@@ -24,14 +24,14 @@ FFTFnwrGlitch::FFTFnwrGlitch(){
     myVbo.setColorData(myColor, NUM_PARTICLES, GL_DYNAMIC_DRAW);
     
     /*
-     stiffness = 0.8;
-     damping = 0.9;
-     mass = 4.0;
-     */
-    
+    stiffness = 10.0;
+    damping = 0.98;
+    mass = 1000.0;
+    */
+
     stiffness = 2.0;
-    damping = 0.93;
-    mass = 14.0;
+    damping = 0.95;
+    mass = 20.0;
     
     camStart = ((testApp*)ofGetAppPtr())->cam.getPosition();
     camEnd = camStart;
@@ -77,11 +77,11 @@ void FFTFnwrGlitch::update(){
     myVbo.updateVertexData(myVerts, NUM_PARTICLES);
     myVbo.updateColorData(myColor, NUM_PARTICLES);
     
-    camPct += 0.05;
+    camPct += 0.01;
     if (camPct > 1.0) {
         camPct = 1.0;
     }
-    camCurrent = interpolateByPct(camPct, 0.7);
+    camCurrent = interpolateByPct(camPct, 0.3);
     ((testApp*)ofGetAppPtr())->cam.setPosition(camCurrent);
     ((testApp*)ofGetAppPtr())->cam.lookAt(ofVec3f(0,0,0));
 }

@@ -74,8 +74,16 @@ void FFTColor::draw(){
             ofRotateY(rot[i]*1.5 + j * 0.15);
             //ofRotateY(rot[i]*(0.2 + i / 500.0));
             //ofRotateZ(rot[j]*(0.3 + j / 500.0));
-            ofSetColor(magnitudeLow * scale, magnitudeMid * scale, magnitudeHigh * scale);
+            //ofSetColor(magnitudeLow * scale, magnitudeMid * scale, magnitudeHigh * scale);
+            int br = 64 + (((testApp*)ofGetAppPtr())->avg_power * 4);
+            if (br > 180) {
+                br = 180;
+            }
+            int hue = int(((testApp*)ofGetAppPtr())->avg_power * 20) % 255;
+            ofSetColor(ofColor::fromHsb(hue, 120, br));
+            
             ofBox(0, 0, 0, 30 + add * 0.8);
+            /*
             if (add > 0) {
                 ofNoFill();
                 ofEnableSmoothing();
@@ -87,6 +95,7 @@ void FFTColor::draw(){
                 ofSetLineWidth(1);
                 ofDisableSmoothing();
             }
+             */
             ofPopMatrix();
         }
     }
