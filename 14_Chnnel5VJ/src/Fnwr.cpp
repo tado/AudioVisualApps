@@ -37,13 +37,15 @@ void Fnwr::draw(){
         ofRotateX(time * i / float(num) * 17);
         float scale = (sin(time * 0.3 * i / float(num)) + 1.5) * 0.75;
         ofScale(scale, scale);
-        ofSetColor(br, br, br, 255/float(num) * 2.0);
+        ofSetColor(br, br, br, 255/float(num) * 3.0);
         ofRotateX(180);
         fnwr.draw(-fnwr.width/2, -fnwr.height/2, -150);
         ofPopMatrix();
     }
+    /*
     ofSetColor(255, 255, 255, 200);
     ofScale(1.25, 1.25);
     ofRotateX(180);
     fnwr.draw(-fnwr.width/2, -fnwr.height/2);
+     */
 }

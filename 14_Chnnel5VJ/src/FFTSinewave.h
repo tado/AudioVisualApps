@@ -1,8 +1,8 @@
 //
-//  FFTGrid.h
-//  FFTMultiScene
+//  FFTSinewave.h
+//  Chnnel5VJ
 //
-//  Created by Atsushi Tadokoro on 1/5/13.
+//  Created by Atsushi Tadokoro on 5/24/13.
 //
 //
 
@@ -10,9 +10,9 @@
 #include "ofMain.h"
 #include "fft.h"
 
-class FFTGrid {
+class FFTSinewave {
 public:
-    FFTGrid();
+    FFTSinewave();
     void update();
     void draw();
     void keyPressed(int key);

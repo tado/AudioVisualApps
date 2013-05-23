@@ -222,6 +222,10 @@ void testApp::keyPressed(int key){
             fftFnwrGlitch->keyPressed(key);
         }
     }
+    
+    if (mode == 8) {
+        fftGrid->keyPressed(key);
+    }
 }
 
 void testApp::mouseDragged(int x, int y, int button){
