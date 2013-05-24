@@ -24,15 +24,15 @@ FFTFnwrGlitch::FFTFnwrGlitch(){
 	myVbo.setVertexData(myVerts, NUM_PARTICLES, GL_DYNAMIC_DRAW);
 	myVbo.setColorData(myColor, NUM_PARTICLES, GL_DYNAMIC_DRAW);
     
-    /*
      stiffness = 0.8;
      damping = 0.9;
      mass = 4.0;
-     */
     
+    /*
     stiffness = 2.0;
     damping = 0.93;
     mass = 14.0;
+     */
 }
 
 void FFTFnwrGlitch::update(){
@@ -80,7 +80,7 @@ void FFTFnwrGlitch::draw(){
     glEnable(GL_DEPTH_TEST);
     //glEnable(GL_CULL_FACE);
     //ofEnableBlendMode(OF_BLENDMODE_ALPHA);
-    //ofDisableBlendMode();
+    ofDisableBlendMode();
     ofDisableLighting();
     ofPushMatrix();
     ofScale(5.0,5.0,2.0);

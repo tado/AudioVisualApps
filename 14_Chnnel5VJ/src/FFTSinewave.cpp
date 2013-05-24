@@ -33,8 +33,9 @@ void FFTSinewave::update(){
 
 void FFTSinewave::draw(){
     ofPushMatrix();
+    ofEnableSmoothing();
     ofTranslate(-ofGetWidth()/2, -ofGetHeight()/2);
-    ofSetColor(255, 200);
+    ofSetColor(255);
     int step = fft_size/col;
     for (int i = 1; i < fft_size; i += step) {
         float center = ofGetWidth()/2 + i;
@@ -64,5 +65,6 @@ void FFTSinewave::draw(){
         ofFill();
         ofPopMatrix();
     }
+    ofDisableSmoothing();
     ofPopMatrix();
 }
