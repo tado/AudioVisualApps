@@ -18,6 +18,6 @@ public:
     void keyPressed(int key);
     
     int fft_size;
-    float *audio_input;
+    float *magnitude;
     float col;
 };

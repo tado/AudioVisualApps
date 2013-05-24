@@ -20,13 +20,16 @@ void Fnwr::update(){
 void Fnwr::draw(){
     float strength = 4.0;
     
+    ((testApp*)ofGetAppPtr())->cam.setPosition(0,0,500);
+    ((testApp*)ofGetAppPtr())->cam.lookAt(ofVec3f(0,0,0));
+    
     ofPushMatrix();
     ofTranslate(-ofGetWidth()/2, -ofGetHeight()/2);
     ofBackgroundGradient(ofColor::fromHsb(0, 200, avg_power*strength), ofColor::fromHex(0x000000));
     ofPopMatrix();
 
     int br = 700;
-    int num = 48;
+    int num = 12;
     
     float time = ofGetElapsedTimef() + 1200;
 
@@ -42,10 +45,10 @@ void Fnwr::draw(){
         fnwr.draw(-fnwr.width/2, -fnwr.height/2, -150);
         ofPopMatrix();
     }
-    /*
+
     ofSetColor(255, 255, 255, 200);
     ofScale(1.25, 1.25);
     ofRotateX(180);
     fnwr.draw(-fnwr.width/2, -fnwr.height/2);
-     */
+
 }

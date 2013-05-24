@@ -49,12 +49,12 @@ void testApp::setup(){
     fftCircle = new FFTCircle();
     fftBox = new FFTBox();
     //fftParticle = new FFTParticle();
-    fftTracer = new FFTTracer();
     fftGlitch = new FFTGlitch();
     fftFnwrGlitch = new FFTFnwrGlitch();
     fftColor = new FFTColor();
     fftGrid = new FFTGrid();
     fftFnwrNoise = new FFTFnwrNoise();
+    fftTracer = new FFTTracer();
     
     //ofSoundStreamListDevices();
     
@@ -174,7 +174,7 @@ void testApp::keyPressed(int key){
     }
     if (key == '6') {
         mode = 6;
-        fftFnwrGlitch->resetCam();
+        //fftFnwrGlitch->resetCam();
     }
     if (key == '7') {
         mode = 7;

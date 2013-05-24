@@ -34,6 +34,7 @@ public:
     void draw()	{
         if (points.empty()) return;
         
+        /*
         for (int i = 0; i < points.size() - 1; i++){
             float a = ofMap(i, 0, points.size() - 1, 1, 0);
             
@@ -48,6 +49,13 @@ public:
             ofLine(p0.x, p0.y, p0.z, p1.x, p1.y, p1.z);
             //}
         }
+         */
+        ofSetLineWidth(1);
+        ofBeginShape();
+        for (int i = 0; i < points.size() - 1; i++){
+            ofVertex(points[i].x, points[i].y, points[i].z);
+        }
+        ofEndShape();
     }
     
     void clear() {
@@ -87,8 +95,11 @@ FFTTracer::FFTTracer(){
     damping = 0.92;
     mass = 200;
     
-    camStart = ((testApp*)ofGetAppPtr())->cam.getPosition();
-    camEnd = camStart;
+    //((testApp*)ofGetAppPtr())->cam.setPosition(0, 0, -200);
+    //((testApp*)ofGetAppPtr())->cam.lookAt(ofVec3f(0,0,0));
+    //camStart = ofPoint(0,0,-200);
+    //camEnd = camStart;
+    resetCam();
 }
 
 void FFTTracer::update(){
@@ -144,13 +155,13 @@ void FFTTracer::draw(){
 void FFTTracer::keyPressed(int key){
     camPct = 0.0;
     camStart = camCurrent;
-    camEnd = ofVec3f(ofRandom(-500,500), ofRandom(-500,500), ofRandom(-500,500));
+    camEnd = ofVec3f(ofRandom(-300,300), ofRandom(-300,300), ofRandom(-300,300));
 }
 
 void FFTTracer::resetCam(){
-    ((testApp*)ofGetAppPtr())->cam.setPosition(0,0,500);
+    ((testApp*)ofGetAppPtr())->cam.setPosition(0,0,250);
     ((testApp*)ofGetAppPtr())->cam.lookAt(ofVec3f(0,0,0));
-    camCurrent =  camEnd = camStart = ((testApp*)ofGetAppPtr())->cam.getPosition();
+    camCurrent =  camEnd = camStart = ofPoint(0,0,250);
 }
 
 ofVec3f FFTTracer::interpolateByPct(float _pct, float _shaper){
