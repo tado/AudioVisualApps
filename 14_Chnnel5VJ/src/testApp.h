@@ -14,6 +14,7 @@
 #include "FFTGrid.h"
 #include "FFTFnwrNoise.h"
 #include "FFTTracer.h"
+#include "FFTSinewave.h"
 
 class testApp : public ofBaseApp {
 public:
@@ -42,7 +43,8 @@ public:
     //ofxControlPanel gui;
     Fnwr *fnwr;
     FFTCircle *fftCircle;
-    FFTRotate *fftRotate;
+    FFTSinewave *fftSinewave;
+    //FFTRotate *fftRotate;
     FFTBox *fftBox;
     //FFTParticle *fftParticle;
     FFTGlitch *fftGlitch;

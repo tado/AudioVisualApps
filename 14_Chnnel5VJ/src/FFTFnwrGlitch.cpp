@@ -80,7 +80,7 @@ void FFTFnwrGlitch::draw(){
     glEnable(GL_DEPTH_TEST);
     //glEnable(GL_CULL_FACE);
     //ofEnableBlendMode(OF_BLENDMODE_ALPHA);
-    ofDisableBlendMode();
+    //ofDisableBlendMode();
     ofDisableLighting();
     ofPushMatrix();
     ofScale(5.0,5.0,2.0);

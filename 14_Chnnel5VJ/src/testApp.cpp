@@ -45,8 +45,9 @@ void testApp::setup(){
     
     mode = 0;
     fnwr = new Fnwr();
-    fftRotate = new FFTRotate();
+    //fftRotate = new FFTRotate();
     fftCircle = new FFTCircle();
+    fftSinewave = new FFTSinewave();
     fftBox = new FFTBox();
     //fftParticle = new FFTParticle();
     fftGlitch = new FFTGlitch();
@@ -72,9 +73,11 @@ void testApp::update() {
     }
     if (mode == 1) {
         fftCircle->update();
+        
     }
     if (mode == 2) {
-        fftRotate->update();
+        //fftRotate->update();
+        fftSinewave->update();
     }
     if (mode == 3) {
         fftBox->update();
@@ -111,7 +114,8 @@ void testApp::draw() {
         fftCircle->draw();
     }
     if (mode == 2) {
-        fftRotate->draw();
+       //fftRotate->draw();
+        fftSinewave->draw();
     }
     if (mode == 3) {
         fftBox->draw();

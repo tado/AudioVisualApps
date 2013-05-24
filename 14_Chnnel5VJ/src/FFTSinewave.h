@@ -19,5 +19,6 @@ public:
     
     int fft_size;
     float *magnitude;
-    float col;
+    float *avarage;
+    int col;
 };
