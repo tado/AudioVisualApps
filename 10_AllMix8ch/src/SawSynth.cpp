@@ -3,7 +3,7 @@
 
 SawSynth::SawSynth(int n){
     death = false;
-    detune = ofRandom(-0.2, 0.2);
+    detune = ofRandom(-0.15, 0.15);
     nth = n;
     alpha = 1;
     alphaMax = 127;
