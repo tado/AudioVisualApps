@@ -70,6 +70,7 @@ void testApp::draw()
     oscShader.begin();
     oscShader.setUniform1f("time", ofGetElapsedTimef());
     oscShader.setUniform1f("num", oscNum);
+    int n = int(oscNum);
     oscShader.setUniform2fv("resolution", resolution);
     oscShader.setUniform2fv("mouse", mousePoint);
     ofRect(0, 0, ofGetWidth(), ofGetHeight());

@@ -3,6 +3,7 @@ precision mediump float;
 #endif
 
 uniform float time;
+uniform float freq[100];
 uniform vec2 mouse;
 uniform vec2 resolution;
 uniform float num;
@@ -15,12 +16,14 @@ void main( void ) {
     float r = 0.0, g = 0.0, b = 0.0;
     for(float i = 0.0; i < num; i++) {
         //float a = i * (TWO_PI/num) *(time+200.0)*0.02;
-        float a = i * (time+200.0)*0.01 + (num - 1.0) * 0.01;
-        r+= cos( ((position.x-resolution.x*res/2.0) * cos(a/res) + (position.y-resolution.y*res/2.0) * sin(a/res) + time*3.0)/res/res);
-        g+= cos( ((position.x-resolution.x*res/2.0) * cos(a/res) + (position.y-resolution.y*res/2.0) * sin(a/res) + time*3.3)/res/res);
-        b+= cos( ((position.x-resolution.x*res/2.0) * cos(a/res) + (position.y-resolution.y*res/2.0) * sin(a/res) + time*3.6)/res/res);
+        //float a = i * (time-20000.0)*0.04 + (num - 1.0) * 0.001;       
+        float a = i * time * 0.08;
+        r+= cos( ((position.x-resolution.x*res/2.0) * cos(a/res) + (position.y-resolution.y*res/2.0) * sin(a/res) + time)/res/res);
+        g+= cos( ((position.x-resolution.x*res/2.0) * cos(a*1.01/res) + (position.y-resolution.y*res/2.0) * sin(a*1.01/res) + time*1.3)/res/res);
+        b+= cos( ((position.x-resolution.x*res/2.0) * cos(a*1.02/res) + (position.y-resolution.y*res/2.0) * sin(a*1.02/res) + time*1.5)/res/res);
+        
     }
-    float d = 0.8;
+    float d = 0.2;
     r/= num*d;
     g/= num*d;
     b/= num*d;
