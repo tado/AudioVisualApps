@@ -8,8 +8,7 @@
 
 #include "OscWave.h"
 
-OscWave::OscWave(int _index, float _freq, float _pan, float _lfo, float _amp, float _alpha)
-{
+OscWave::OscWave(int _index, float _freq, float _pan, float _lfo, float _amp, float _alpha){
     index = _index;
     freq = _freq;
     pan = _pan;

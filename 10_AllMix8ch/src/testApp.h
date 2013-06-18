@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxSuperColliderServer.h"
-#include "OscWave.h"
+#include "OscGlsl.h"
 #include "MyRect.h"
 #include "GlitchRect.h"
 #include "Flicker.h"
@@ -28,7 +28,10 @@ public:
     int mode;
     ofxSCSynth *fx1;
     ofxSCSynth *fx2;
-    deque<OscWave *> oscils;
+    deque<OscGlsl *> oscils;
+    ofShader oscShader;
+    ofFbo oscFbo;
+    float oscNum;
     
     bool bMousePressed;
     ofVec2f drawPos;

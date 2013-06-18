@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0546d1a38e13bd319cc9755b5ca7e1a0 /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9bf3aa0d4faa89d0f8a0e545403162be /* OscReceivedElements.cpp */; };
+		1841B2B01770C90E00B390DB /* OscGlsl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1841B2AE1770C90E00B390DB /* OscGlsl.cpp */; };
+		1841B2B71770D9EB00B390DB /* osc.frag in Sources */ = {isa = PBXBuildFile; fileRef = 1841B2B61770D9EB00B390DB /* osc.frag */; };
 		186CE10C168A6EE200DE6B89 /* SawSynth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186CE10A168A6EE200DE6B89 /* SawSynth.cpp */; };
 		186FCE9C16601DF2006FB93F /* ofxSCBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186FCE2516601DF2006FB93F /* ofxSCBuffer.cpp */; };
 		186FCE9D16601DF2006FB93F /* ofxSCBus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186FCE2716601DF2006FB93F /* ofxSCBus.cpp */; };
@@ -94,6 +96,9 @@
 /* Begin PBXFileReference section */
 		00d6d32b84b099226431108cea775a33 /* ofxOsc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOsc.h; path = ../../../addons/ofxOsc/src/ofxOsc.h; sourceTree = SOURCE_ROOT; };
 		029684cf678f70f6d3537a29773654a6 /* OscOutboundPacketStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscOutboundPacketStream.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h; sourceTree = SOURCE_ROOT; };
+		1841B2AE1770C90E00B390DB /* OscGlsl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscGlsl.cpp; sourceTree = "<group>"; };
+		1841B2AF1770C90E00B390DB /* OscGlsl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscGlsl.h; sourceTree = "<group>"; };
+		1841B2B61770D9EB00B390DB /* osc.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = osc.frag; path = bin/data/shaders/osc.frag; sourceTree = SOURCE_ROOT; };
 		186CE10A168A6EE200DE6B89 /* SawSynth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SawSynth.cpp; sourceTree = "<group>"; };
 		186CE10B168A6EE200DE6B89 /* SawSynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SawSynth.h; sourceTree = "<group>"; };
 		186FCE2316601DF2006FB93F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -595,6 +600,8 @@
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				18A98CC315F6B73F004C8032 /* OscWave.h */,
 				18A98CC215F6B73F004C8032 /* OscWave.cpp */,
+				1841B2AF1770C90E00B390DB /* OscGlsl.h */,
+				1841B2AE1770C90E00B390DB /* OscGlsl.cpp */,
 				18AA453315F7606300C29974 /* MyRect.h */,
 				18AA453215F7606300C29974 /* MyRect.cpp */,
 				18AA453615F77ACE00C29974 /* GlitchRect.h */,
@@ -603,6 +610,7 @@
 				18AA455015F84CAD00C29974 /* Flicker.cpp */,
 				186CE10B168A6EE200DE6B89 /* SawSynth.h */,
 				186CE10A168A6EE200DE6B89 /* SawSynth.cpp */,
+				1841B2B61770D9EB00B390DB /* osc.frag */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -798,6 +806,8 @@
 				186FCEA216601DF2006FB93F /* ofxSCSynth.cpp in Sources */,
 				186FCEA716601DF2006FB93F /* ofxSuperColliderServer.cpp in Sources */,
 				186CE10C168A6EE200DE6B89 /* SawSynth.cpp in Sources */,
+				1841B2B01770C90E00B390DB /* OscGlsl.cpp in Sources */,
+				1841B2B71770D9EB00B390DB /* osc.frag in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
