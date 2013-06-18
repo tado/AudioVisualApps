@@ -301,7 +301,7 @@ void testApp::mouseReleased(int x, int y, int button)
         if (dist > 100.0) {
             dist = 100.0;
         }
-        float amp = ofMap(dist, 0.0, 100.0, 0.0, 0.5);
+        float amp = ofMap(dist, 0.0, 100.0, 0.0, 0.3);
         OscWave *o = new OscWave(oscils.size()+1, freq, pan, ofRandom(0.1, 1.0), amp);
         oscils.push_back(o);
     }

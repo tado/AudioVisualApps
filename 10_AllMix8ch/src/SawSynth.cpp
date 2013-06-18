@@ -3,7 +3,7 @@
 
 SawSynth::SawSynth(int n){
     death = false;
-    detune = ofRandom(-0.1, 0.1);
+    detune = ofRandom(-0.2, 0.2);
     nth = n;
     alpha = 1;
     alphaMax = 127;
@@ -11,7 +11,7 @@ SawSynth::SawSynth(int n){
     
     synth = new ofxSCSynth("col_closesaw");
     synth->set("gate", 1);
-    synth->set("amp", 0.5);
+    synth->set("amp", 0.75);
     synth->set("rq", 1.0);
     synth->set("n", nth);
     synth->set("detune", detune);
@@ -62,7 +62,7 @@ void SawSynth::draw(){
         ofSetColor(alpha);
         ofPushMatrix();
         ofTranslate(0, phase);
-        ofSetLineWidth(5);
+        ofSetLineWidth(1);
         for (int i = -1; i < n + 1; i++) {
             ofLine(0, height * i, ofGetWidth(), height * i);
         }
