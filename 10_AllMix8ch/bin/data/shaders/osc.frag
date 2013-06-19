@@ -19,9 +19,9 @@ void main( void ) {
         //float a = i * (time-20000.0)*0.04 + (num - 1.0) * 0.001;       
         float a = i * (time) * 0.04;
         float fres = oscFreq[int(i)];
-        r+= cos( ((position.x-resolution.x*fres/2.0) * cos(a/res) + (position.y-resolution.y*fres/2.0) * sin(a/res) + time)/fres/fres);
-        g+= cos( ((position.x-resolution.x*fres/2.0) * cos(a*1.001/res) + (position.y-resolution.y*fres/2.0) * sin(a*1.001/res) + time)/fres/fres);
-        b+= cos( ((position.x-resolution.x*fres/2.0) * cos(a*1.002/res) + (position.y-resolution.y*fres/2.0) * sin(a*1.002/res) + time)/fres/fres);
+        r+= cos( ((position.x-resolution.x*res/2.0) * cos(a/res) + (position.y-resolution.y*res/2.0) * sin(a/res) + time)/fres/fres);
+        g+= cos( ((position.x-resolution.x*res/2.0) * cos(a*1.001/res) + (position.y-resolution.y*res/2.0) * sin(a*1.001/res) + time)/fres/fres);
+        b+= cos( ((position.x-resolution.x*res/2.0) * cos(a*1.002/res) + (position.y-resolution.y*res/2.0) * sin(a*1.002/res) + time)/fres/fres);
         
     }
     float d = 0.2;
