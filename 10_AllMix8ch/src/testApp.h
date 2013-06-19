@@ -32,7 +32,8 @@ public:
     ofShader oscShader;
     ofFbo oscFbo;
     float oscNum;
-    float oscFreq[64];
+    //float oscFreq[100];
+    deque<float> oscFreq;
     
     bool bMousePressed;
     ofVec2f drawPos;

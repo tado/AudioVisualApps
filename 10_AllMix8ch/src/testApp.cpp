@@ -74,20 +74,18 @@ void testApp::draw()
     oscShader.setUniform1f("time", ofGetElapsedTimef());
     oscShader.setUniform1f("num", oscNum);
     int n = int(oscNum);
-    oscShader.setUniform1fv("oscFreq", oscFreq, 64);
+    float ffreq[100];
+    for (int i = 0; i< oscFreq.size(); i++) {
+        ffreq[i] = oscFreq[i];
+    }
+    oscShader.setUniform1fv("oscFreq", ffreq, 64);
     oscShader.setUniform2fv("resolution", resolution);
     oscShader.setUniform2fv("mouse", mousePoint);
     ofRect(0, 0, ofGetWidth(), ofGetHeight());
     oscShader.end();
     oscFbo.end();
     oscFbo.draw(0, 0, ofGetWidth(), ofGetHeight());
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
-    /*
-    for (int i = 0; i < oscils.size(); i++) {
-        oscils[i]->draw();
-    }
-     */
-    
+    ofEnableBlendMode(OF_BLENDMODE_ADD);   
     
     for (int i=0; i<rects.size(); i++) {
         rects[i]->draw();
@@ -210,6 +208,8 @@ void testApp::keyPressed(int key){
             if (mode == 1 && oscils.size()>0) {
                 oscils[0]->synth->set("gate", 0);
                 oscils.pop_front();
+                oscFreq.pop_front();
+                //oscils.pop_back();
                 oscNum -= 1.0;
             }
             if (mode == 2 && rects.size() > 0) {
@@ -329,7 +329,8 @@ void testApp::mouseReleased(int x, int y, int button)
             dist = 100.0;
         }
         float amp = ofMap(dist, 0.0, 100.0, 0.0, 0.3);
-        oscFreq[oscils.size()] = ofMap(freq, 20, 8000, 3.0, 0.1);
+        //oscFreq[oscils.size()] = ofMap(freq, 20, 8000, 3.0, 0.1);
+        oscFreq.push_back(ofMap(freq, 20, 8000, 3.0, 0.1));
         OscGlsl *o = new OscGlsl(oscils.size()+1, freq, pan, ofRandom(0.1, 1.0), amp);
         oscils.push_back(o);
     }

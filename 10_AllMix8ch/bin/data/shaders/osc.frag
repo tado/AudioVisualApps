@@ -3,7 +3,7 @@ precision mediump float;
 #endif
 
 uniform float time;
-uniform float oscFreq[64];
+uniform float oscFreq[100];
 uniform vec2 mouse;
 uniform vec2 resolution;
 uniform float num;
@@ -24,7 +24,7 @@ void main( void ) {
         b+= cos( ((position.x-resolution.x*res/2.0) * cos(a*1.002/res) + (position.y-resolution.y*res/2.0) * sin(a*1.02/res) + time)/fres/fres);
         
     }
-    float d = 0.2;
+    float d = 0.1;
     r/= num*d;
     g/= num*d;
     b/= num*d;
