@@ -34,6 +34,9 @@ void testApp::setup(){
     oscShader.load("shaders/osc");
     oscFbo.allocate(320, 240);
     oscNum = 0.0;
+    for (int i = 0; i < 64; i++) {
+        oscFreq[i] = 1.0;
+    }
 }
 
 //--------------------------------------------------------------
@@ -71,6 +74,7 @@ void testApp::draw()
     oscShader.setUniform1f("time", ofGetElapsedTimef());
     oscShader.setUniform1f("num", oscNum);
     int n = int(oscNum);
+    oscShader.setUniform1fv("oscFreq", oscFreq, 64);
     oscShader.setUniform2fv("resolution", resolution);
     oscShader.setUniform2fv("mouse", mousePoint);
     ofRect(0, 0, ofGetWidth(), ofGetHeight());
@@ -325,6 +329,7 @@ void testApp::mouseReleased(int x, int y, int button)
             dist = 100.0;
         }
         float amp = ofMap(dist, 0.0, 100.0, 0.0, 0.3);
+        oscFreq[oscils.size()] = ofMap(freq, 20, 8000, 2.0, 0.1);
         OscGlsl *o = new OscGlsl(oscils.size()+1, freq, pan, ofRandom(0.1, 1.0), amp);
         oscils.push_back(o);
     }
