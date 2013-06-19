@@ -329,7 +329,7 @@ void testApp::mouseReleased(int x, int y, int button)
             dist = 100.0;
         }
         float amp = ofMap(dist, 0.0, 100.0, 0.0, 0.3);
-        oscFreq[oscils.size()] = ofMap(freq, 20, 8000, 2.0, 0.1);
+        oscFreq[oscils.size()] = ofMap(freq, 20, 8000, 3.0, 0.1);
         OscGlsl *o = new OscGlsl(oscils.size()+1, freq, pan, ofRandom(0.1, 1.0), amp);
         oscils.push_back(o);
     }
