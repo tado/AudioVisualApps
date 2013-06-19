@@ -32,7 +32,7 @@ void testApp::setup(){
     synthNum = 0;
     
     oscShader.load("shaders/osc");
-    oscFbo.allocate(320, 240);
+    oscFbo.allocate(640, 480);
     oscNum = 0.0;
     for (int i = 0; i < 64; i++) {
         oscFreq[i] = 1.0;
@@ -66,7 +66,7 @@ void testApp::update(){
 void testApp::draw()
 {
     //draw OscWave GLSL
-    float resolution[] = {320, 240};
+    float resolution[] = {640, 480};
     float mousePoint[] = {mouseX, mouseY};
     ofDisableBlendMode();
     oscFbo.begin();
@@ -206,10 +206,12 @@ void testApp::keyPressed(int key){
             
         case 'd':
             if (mode == 1 && oscils.size()>0) {
-                oscils[0]->synth->set("gate", 0);
-                oscils.pop_front();
-                oscFreq.pop_front();
-                //oscils.pop_back();
+                //oscils[0]->synth->set("gate", 0);
+                //oscils.pop_front();
+                //oscFreq.pop_front();
+                oscils[oscils.size()-1]->synth->set("gate", 0);
+                oscFreq.pop_back();
+                oscils.pop_back();
                 oscNum -= 1.0;
             }
             if (mode == 2 && rects.size() > 0) {

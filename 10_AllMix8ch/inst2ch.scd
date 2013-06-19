@@ -12,7 +12,8 @@ SynthDef("col_sine", {
 	arg outbus=0, freq=440, pan=0.0, lfoFreq=1.0, amp=0.5, gate=0;
 	var mix, env, lfo;
 	lfo = SinOsc.kr(lfoFreq,0,0.5);
-	env = EnvGen.kr(Env.new([0,1], [10], 'sine'));
+	//env = EnvGen.kr(Env.new([0,1], [10], 'sine'));
+	env = EnvGen.kr(Env.new([0,1], [0.5], 'sine'));
 	mix = SinOsc.ar(freq,0,amp*lfo) * env;
 	mix = Pan2.ar(SinOsc.ar(freq,0,amp*lfo),pan) * env;
 	//2.do({mix = AllpassL.ar(mix, 0.1, LFNoise2.kr([rrand(0.01, 0.1),rrand(0.01, 0.1)], 0.04, 0.08), 0.2) });
