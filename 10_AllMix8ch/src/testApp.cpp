@@ -32,7 +32,7 @@ void testApp::setup(){
     synthNum = 0;
     
     oscShader.load("shaders/osc");
-    oscFbo.allocate(640, 480);
+    oscFbo.allocate(320, 240);
     oscNum = 0.0;
     for (int i = 0; i < 64; i++) {
         oscFreq[i] = 1.0;
@@ -66,7 +66,7 @@ void testApp::update(){
 void testApp::draw()
 {
     //draw OscWave GLSL
-    float resolution[] = {640, 480};
+    float resolution[] = {320, 240};
     float mousePoint[] = {mouseX, mouseY};
     ofDisableBlendMode();
     oscFbo.begin();
