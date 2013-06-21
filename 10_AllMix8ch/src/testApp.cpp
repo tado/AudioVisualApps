@@ -9,7 +9,7 @@ void testApp::setup(){
     ofSetCircleResolution(32);
 	ofBackgroundHex(0x000000);
     
-    ofxSuperColliderServer::init();
+    ofxSuperColliderServer::init(57110, 44100);
     
     fx1 = new ofxSCSynth("col_fx");
     fx2 = new ofxSCSynth("col_closefx");
