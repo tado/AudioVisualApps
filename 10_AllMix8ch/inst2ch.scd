@@ -13,7 +13,7 @@ SynthDef("col_sine", {
 	var mix, env, lfo;
 	lfo = SinOsc.kr(lfoFreq,0,0.5);
 	//env = EnvGen.kr(Env.new([0,1], [10], 'sine'));
-	env = EnvGen.kr(Env.new([0,1], [0.5], 'sine'));
+	env = EnvGen.kr(Env.new([0,1], [3], 'sine'));
 	mix = SinOsc.ar(freq,0,amp*lfo) * env;
 	mix = Pan2.ar(SinOsc.ar(freq,0,amp*lfo),pan) * env;
 	//2.do({mix = AllpassL.ar(mix, 0.1, LFNoise2.kr([rrand(0.01, 0.1),rrand(0.01, 0.1)], 0.04, 0.08), 0.2) });
@@ -74,8 +74,8 @@ SynthDef("col_harmony", {
 	out = (out * (fx - 1.0)) + (w * fx) * EnvGen.kr(Env.new([0,1], [30], 'sine'));
 	out = out * EnvGen.kr(Env.adsr(releaseTime:10), gate, doneAction: 2);
 	//out = PanAz.ar(8, out.at(0), LFSaw.kr(1.0)) + PanAz.ar(8, out.at(1), LFSaw.kr(1.5)) ;
-	Out.ar(0, out);
-	Out.ar(3, out);
+	Out.ar(0, out * 0.5);
+	Out.ar(3, out * 0.3);
 }).store;
 
 SynthDef("col_sawbass", {
@@ -135,7 +135,7 @@ SynthDef("col_closefx", {
 	arg lpf=440, rq=0.5, amp=1.0;
 	var in, out;
 	in = In.ar(5, 2);
-	16.do({ in = AllpassL.ar(in, 0.1, LFNoise2.kr([rrand(0.0, 0.1),rrand(0.0, 0.1)],0.005,0.03), 4.0) });
+	32.do({ in = AllpassL.ar(in, 0.1, LFNoise2.kr([rrand(0.0, 0.1),rrand(0.0, 0.1)],0.005,0.03), 4.0) });
 	out = CompanderD.ar(in) * amp;
 	Out.ar(0, out);
 }).store;

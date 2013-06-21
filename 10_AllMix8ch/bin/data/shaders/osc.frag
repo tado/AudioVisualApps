@@ -25,7 +25,7 @@ void main( void ) {
         b+= cos( ((position.x-resolution.x*res/2.0) * cos(a/res) + (position.y-resolution.y*res/2.0) * sin(a/res) + time)/fres/fres - 4.0);
         
     }
-    float d = 0.3;
+    float d = 0.4;
     r/= num*d;
     g/= num*d;
     b/= num*d;

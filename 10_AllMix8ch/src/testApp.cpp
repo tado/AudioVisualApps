@@ -71,7 +71,7 @@ void testApp::draw()
     ofDisableBlendMode();
     oscFbo.begin();
     oscShader.begin();
-    oscShader.setUniform1f("time", ofGetElapsedTimef());
+    oscShader.setUniform1f("time", ofGetElapsedTimef() - oscStartTime);
     oscShader.setUniform1f("num", oscNum);
     int n = int(oscNum);
     float ffreq[100];
@@ -254,6 +254,7 @@ void testApp::keyPressed(int key){
         case '1':
             // OscWave
             mode = 1;
+            oscStartTime = ofGetElapsedTimef();
             ofShowCursor();
             break;
             

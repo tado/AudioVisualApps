@@ -32,7 +32,7 @@ public:
     ofShader oscShader;
     ofFbo oscFbo;
     float oscNum;
-    //float oscFreq[100];
+    float oscStartTime;
     deque<float> oscFreq;
     
     bool bMousePressed;
