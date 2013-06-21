@@ -104,7 +104,7 @@ SynthDef("col_sawbass", {
 	//out = PanAz.ar(8, out.at(0), LFSaw.kr(5.0)) + PanAz.ar(8, out.at(1), LFSaw.kr(6.0));
 	out = out * Decay2.ar(pul, 0.01, 0.3);
 	out = out * EnvGen.kr(Env.new([0,1], [30], 'sine'));
-	Out.ar(0, out.softclip);
+	Out.ar(0, (out * 1.5).softclip);
 
 }).store;
 

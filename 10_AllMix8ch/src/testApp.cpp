@@ -159,7 +159,7 @@ void testApp::draw()
     // Saw Lines
     if (mode == 5) {
         ofSetHexColor(0xffffff);
-        ofDrawBitmapString("saw: , synthNum = " + ofToString(synthNum) , 10, 22);
+        ofDrawBitmapString("Num = " + ofToString(synthNum) , 10, 22);
     }
     
     // log
